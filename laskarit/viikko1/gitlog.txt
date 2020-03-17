@@ -1,0 +1,122 @@
+commit fa76cb6f186e3240775d6069b9ed62d4745b5319
+Author: Oskari Keränen <oskari.e.keranen@gmail.com>
+Date:   Tue Mar 17 20:43:20 2020 +0200
+
+    poistettu ja uudelleennimetty tiedosto
+
+ tiedostoja/file2             | 0
+ tiedostoja/{file1 => file22} | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit f344e51bf605be42b86d96f984db477cfbabe49f
+Author: Oskari Keränen <oskari.e.keranen@gmail.com>
+Date:   Tue Mar 17 20:36:35 2020 +0200
+
+    luotu uusi kansio ja sen tiedostot
+
+ tiedostoja/file1 | 0
+ tiedostoja/file2 | 0
+ tiedostoja/file3 | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit f11e740e5d5a5e3731e8e062c175f901393747e0
+Author: Oskari Keränen <oskari.e.keranen@gmail.com>
+Date:   Tue Mar 17 20:29:41 2020 +0200
+
+    muutoksia tiedostoihin eka ja kolmas
+
+ eka.txt    | 2 +-
+ kolmas.txt | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+commit f5231c5d98224d073f3d226b0f3275cfafee86be
+Author: Oskari Keränen <oskari.e.keranen@gmail.com>
+Date:   Tue Mar 17 20:26:42 2020 +0200
+
+    poistettiin tiedoston tiedosto.txt jäänne
+
+ tiedosto.txt | 1 -
+ 1 file changed, 1 deletion(-)
+
+commit 05291d2535b028e30a4684978ebb5deee0976494
+Author: Oskari Keränen <oskari.e.keranen@gmail.com>
+Date:   Tue Mar 17 20:25:50 2020 +0200
+
+    uudelleennimettiin tiedosto tiedosto.txt
+
+ eka.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 6a545a07379258685645512b7aea063f891dec7a
+Author: Oskari Keränen <oskari.e.keranen@gmail.com>
+Date:   Tue Mar 17 20:24:35 2020 +0200
+
+    poistettiin tiedosto toinen.txt
+
+ toinen.txt | 1 -
+ 1 file changed, 1 deletion(-)
+
+commit e9b9caf612c801dcd55febb4caeafe93c19dffe4
+Author: Oskari Keränen <oskari.e.keranen@gmail.com>
+Date:   Tue Mar 17 20:22:33 2020 +0200
+
+    muokattu tiedoston tiedosto leipätekstiä
+
+ tiedosto.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 0182e5ae57e1b87c167ee18f3f8fffb5a79098c9
+Author: Oskari Keränen <oskari.e.keranen@gmail.com>
+Date:   Tue Mar 17 20:17:34 2020 +0200
+
+    lisätty tekstiä tiedostoon tiedosto
+
+ tiedosto.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit d9be0feb8836f440ea3ffaf2224bc20bb6922dde
+Author: Oskari Keränen <oskari.e.keranen@gmail.com>
+Date:   Tue Mar 17 20:10:57 2020 +0200
+
+    luotu kansio stuff
+
+ stuff/jokin.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit aded8290d352bb1febe791eaba28c83fab89b1c7
+Author: Oskari Keränen <oskari.e.keranen@gmail.com>
+Date:   Tue Mar 17 20:09:07 2020 +0200
+
+    muutoksia tiedostoihin toinen ja kolmas
+
+ kolmas.txt | 1 +
+ toinen.txt | 1 +
+ 2 files changed, 2 insertions(+)
+
+commit 7caee74cd464810f4716fd23e8c550c2a4a3ecf3
+Author: Oskari Keränen <oskari.e.keranen@gmail.com>
+Date:   Tue Mar 17 20:05:09 2020 +0200
+
+    luotu kolmas
+
+ kolmas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 6ec66ae1cb33e6b096f5eccf692e383b68117bea
+Author: Oskari Keränen <oskari.e.keranen@gmail.com>
+Date:   Tue Mar 17 20:02:06 2020 +0200
+
+    muutos ja lisäys
+
+ tiedosto.txt | 1 +
+ toinen.txt   | 0
+ 2 files changed, 1 insertion(+)
+
+commit 2eb305cb413e7e498332e32542bee4d7054e7907
+Author: Oskari Keränen <oskari.e.keranen@gmail.com>
+Date:   Tue Mar 17 19:59:16 2020 +0200
+
+    tiedosto.txt luotu
+
+ tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
