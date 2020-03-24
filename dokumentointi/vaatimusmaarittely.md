@@ -25,5 +25,7 @@ Sovellus aukeaa ns. Tervetuloa-näkymään, josta pelaa-nappia klikkaamalla siir
 * Helpossa versiossa sovellus voisi samantien maalata väärän numeron punaiseksi
   * Keskivaikeassa vasta tarkistusvaiheessa
   * Vaikeassa ilmoittaa onko sudoku väärin vai oikein
+  
+* Mahdollisesti tehdä vaikeusasteiden mukaan toimiva ristikonluonti
 
 * Sovellukseen pieni Easter Egg...
