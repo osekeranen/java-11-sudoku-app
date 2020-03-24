@@ -4,7 +4,7 @@
 
 ### Dokumentaatio
 
-[vaatimusmäärittely](https://github.com/osekeranen/ot-harjoitustyo/blob/master/dokumentointi/vaatimusmaarittely.md)
+[vaatimusmäärittely](https://github.com/osekeranen/ot-harjoitustyo/blob/master/dokumentointi/vaatimusmaarittely.md)  
 [työaikakirjanpito](https://github.com/osekeranen/ot-harjoitustyo/blob/master/dokumentointi/tyoaikakirjanpito.md)
 
 ## Tehtävät
