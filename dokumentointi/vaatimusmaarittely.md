@@ -18,7 +18,9 @@ Sovellus aukeaa ns. Tervetuloa-näkymään, josta pelaa-nappia klikkaamalla siir
 
 * Käyttäjä voi pelata sudokua asettelemalla numeroita ristikkoon
 
-* Käyttäjä voi tarkistaa sudokun painamalla tarkista nappia
+* Käyttäjä voi tarkistaa sudokun painamalla tarkista-nappia
+
+* Käyttäjä voi tyhjentää ristikon painamalla tyhjennä-nappia
 
 ## Jatkokehitysideoita
 
