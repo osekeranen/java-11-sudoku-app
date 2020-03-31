@@ -18,12 +18,16 @@ Sovellus aukeaa ns. Tervetuloa-näkymään, josta pelaa-nappia klikkaamalla siir
 
 * Käyttäjä voi pelata sudokua asettelemalla numeroita ristikkoon
 
-* Käyttäjä voi tarkistaa sudokun painamalla tarkista nappia
+* Käyttäjä voi tarkistaa sudokun painamalla tarkista-nappia
+
+* Käyttäjä voi tyhjentää ristikon painamalla tyhjennä-nappia
 
 ## Jatkokehitysideoita
 
 * Helpossa versiossa sovellus voisi samantien maalata väärän numeron punaiseksi
   * Keskivaikeassa vasta tarkistusvaiheessa
   * Vaikeassa ilmoittaa onko sudoku väärin vai oikein
+  
+* Mahdollisesti tehdä vaikeusasteiden mukaan toimiva ristikonluonti
 
 * Sovellukseen pieni Easter Egg...
