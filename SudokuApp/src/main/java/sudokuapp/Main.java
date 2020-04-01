@@ -7,7 +7,7 @@ import sudokuapp.ui.*;
 public class Main {
     public static void main(String[] args) {
 //        Application.launch(SudokuUi.class);
-        SudokuCreator creator = new SudokuCreator();
-        creator.printSudoku(creator.createSudoku());
+        SudokuGenerator generator = new SudokuGenerator();
+        generator.printSudoku(generator.generateSudoku());
     }
 }

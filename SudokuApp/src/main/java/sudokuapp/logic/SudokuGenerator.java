@@ -2,15 +2,15 @@ package sudokuapp.logic;
 
 import java.util.Random;
 
-public class SudokuCreator {
+public class SudokuGenerator {
 
-    public SudokuCreator() {
+    public SudokuGenerator() {
     }
     
-    public int[][] createSudoku() {
+    public int[][] generateSudoku() {
         int[][] sudoku = new int[9][9];
         
-        sudoku[0] = this.createRandomisedLine();
+        sudoku[0] = this.generateRandomisedLine();
         
         for (int i = 1; i < 9; i++) {
             if (i == 3 || i == 6) {
@@ -21,7 +21,7 @@ public class SudokuCreator {
         return sudoku;
     }
     
-    private int[] createRandomisedLine() {
+    private int[] generateRandomisedLine() {
         int[] randomisedLine = new int[9];
         
         for (int i = 0; i < randomisedLine.length; i++) {
