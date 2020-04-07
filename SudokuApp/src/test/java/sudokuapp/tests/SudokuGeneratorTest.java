@@ -168,4 +168,20 @@ public class SudokuGeneratorTest {
         
         assertEquals(45, sum);
     }
+    
+    @Test
+    public void emptySudokuHasCorrectAmountClues() {
+        int[][] emptySudoku = generator.generateEmptySudoku(sudoku, 17);
+        
+        int clues = 0;
+        for (int i = 0; i < emptySudoku.length; i++) {
+            for (int j = 0; j < emptySudoku[0].length; j++) {
+                if (emptySudoku[i][j] != 0) {
+                    clues++;
+                }
+            }
+        }
+        
+        assertEquals(17, clues);
+    }
 }

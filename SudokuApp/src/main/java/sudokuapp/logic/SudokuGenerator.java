@@ -25,6 +25,33 @@ public class SudokuGenerator {
         return sudoku;
     }
     
+    // generate solveable sudoku with empty spots from complete sudoku
+    public int[][] generateEmptySudoku(int[][] sudoku, int clues) {
+        int[][] emptySudoku = new int[9][9];
+        
+        for (int i = 0; i < emptySudoku.length; i++) {
+            for (int j = 0; j < emptySudoku[0].length; j++) {
+                emptySudoku[i][j] = 0;
+            }
+        }
+        
+        Random rgen = new Random();
+        
+        for (int i = 0; i < clues; i++) {
+            int x = rgen.nextInt(sudoku.length);
+            int y = rgen.nextInt(sudoku.length);
+            
+            if (emptySudoku[x][y] == 0) {
+                emptySudoku[x][y] = sudoku[x][y];
+            } else {
+                i--;
+                continue;
+            }
+        }
+        
+        return emptySudoku;
+    }
+    
     public void shuffle(int[][] sudoku) {
         Random rgen = new Random();
         
@@ -65,7 +92,7 @@ public class SudokuGenerator {
         }
     }
     
-    private int[] generateRandomisedRow() {
+    private static int[] generateRandomisedRow() {
         int[] randomisedLine = new int[9];
         
         for (int i = 0; i < randomisedLine.length; i++) {
@@ -84,7 +111,7 @@ public class SudokuGenerator {
         return randomisedLine;
     }
     
-    private int[] shiftRow(int[] line, int howMany) {
+    private static int[] shiftRow(int[] line, int howMany) {
         int[] newLine = new int[line.length];
         
         for (int i = 0; i < line.length; i++) {
