@@ -157,6 +157,7 @@ public class SudokuGenerator {
         }
     }
     
+    // for development purposes only
     public void printSudoku(int[][] sudoku) {
         for (int i = 0; i < 9; i++) {
             if (i == 3 || i == 6) System.out.println("---------------------");
