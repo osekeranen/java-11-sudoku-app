@@ -15,7 +15,9 @@ public class SudokuGenerator {
         for (int i = 1; i < 9; i++) {
             if (i == 3 || i == 6) {
                 sudoku[i] = this.shiftRow(sudoku[i - 1], 1);
-            } else sudoku[i] = this.shiftRow(sudoku[i - 1], 3);
+            } else {
+                sudoku[i] = this.shiftRow(sudoku[i - 1], 3);
+            }
         }
         
         for (int i = 0; i < 9; i++) {
@@ -158,18 +160,18 @@ public class SudokuGenerator {
     }
     
     // for development purposes only
-    public void printSudoku(int[][] sudoku) {
-        for (int i = 0; i < 9; i++) {
-            if (i == 3 || i == 6) System.out.println("---------------------");
-            
-            String line = "";
-            
-            for (int j = 0; j < 9; j++) {
-                if (j == 3 || j == 6) line += " |";
-                line += " " + sudoku[i][j];
-            }
-            
-            System.out.println(line.trim());
-        }
-    }
+//    public void printSudoku(int[][] sudoku) {
+//        for (int i = 0; i < 9; i++) {
+//            if (i == 3 || i == 6) System.out.println("---------------------");
+//            
+//            String line = "";
+//            
+//            for (int j = 0; j < 9; j++) {
+//                if (j == 3 || j == 6) line += " |";
+//                line += " " + sudoku[i][j];
+//            }
+//            
+//            System.out.println(line.trim());
+//        }
+//    }
 }
