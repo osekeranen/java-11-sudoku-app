@@ -14,7 +14,7 @@ Sovellus aukeaa ns. Tervetuloa-näkymään, josta pelaa-nappia klikkaamalla siir
 
 ## Perusversion tarjoama toiminnallisuus 
 
-* Käyttäjä voi valita vaikeusasteen, jonka perusteella sovellus luo sudokuristikon
+* ~~Sovellus luo sudokuristikon ja siihen ratkaisun~~
 
 * Käyttäjä voi pelata sudokua asettelemalla numeroita ristikkoon
 
@@ -24,10 +24,12 @@ Sovellus aukeaa ns. Tervetuloa-näkymään, josta pelaa-nappia klikkaamalla siir
 
 ## Jatkokehitysideoita
 
-* Helpossa versiossa sovellus voisi samantien maalata väärän numeron punaiseksi
-  * Keskivaikeassa vasta tarkistusvaiheessa
-  * Vaikeassa ilmoittaa onko sudoku väärin vai oikein
-  
-* Mahdollisesti tehdä vaikeusasteiden mukaan toimiva ristikonluonti
+* Käyttäjä voi valita vaikeusasteen, jonka perusteella sovellus luo sudokuristikon
 
-* Sovellukseen pieni Easter Egg...
+* Vaikeusasteen mukaan toimiva tarkistus
+  * Helpolla vaikeusasteella tarkistus ilmoittaa jokaisen väärän numeron
+  * Keskivaikealla ilmoittaa väärät 3x3 ristikot
+  * Vaikealla ilmoittaa onko koko sudoku väärin vai oikein
+  
+* Aikaan ja tarkistuksiin perustuva pisteytys
+  * Historian muistava hiscore
