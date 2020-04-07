@@ -14,7 +14,7 @@ Sovellus aukeaa ns. Tervetuloa-näkymään, josta pelaa-nappia klikkaamalla siir
 
 ## Perusversion tarjoama toiminnallisuus 
 
-* ~~Sovellus luo sudokuristikon ja siihen ratkaisun~~
+* Sovellus luo sudokuristikon ja siihen ratkaisun *tehty*
 
 * Käyttäjä voi pelata sudokua asettelemalla numeroita ristikkoon
 
