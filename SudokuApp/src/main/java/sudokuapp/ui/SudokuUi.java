@@ -42,13 +42,13 @@ public class SudokuUi extends Application {
         Button emptySudoku = new Button("E");
         emptySudoku.setFont(Font.font("Monospaced", 16));
         emptySudoku.setOnAction(e -> {
-            
+            this.createGrid();
         });
         
         Button checkSudoku = new Button("C");
         checkSudoku.setFont(Font.font("Monospaced", 16));
         checkSudoku.setOnAction(e ->{
-            this.createGrid();
+            
         });
         
         Button newSudoku = new Button("N");
