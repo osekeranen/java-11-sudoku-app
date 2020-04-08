@@ -16,7 +16,7 @@ Sovellus aukeaa ns. Tervetuloa-näkymään, josta pelaa-nappia klikkaamalla siir
 
 * Sovellus luo sudokuristikon ja siihen ratkaisun *tehty*
 
-* Käyttäjä voi pelata sudokua asettelemalla numeroita ristikkoon
+* Käyttäjä voi pelata sudokua asettelemalla numeroita ristikkoon *tehty*
 
 * Käyttäjä voi tarkistaa sudokun painamalla tarkista-nappia
 
