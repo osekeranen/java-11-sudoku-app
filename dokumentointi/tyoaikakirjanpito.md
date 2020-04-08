@@ -7,4 +7,4 @@
 | 31.3 |  2h  | yritin saada javafx:ää toimimaan netbeansissa                      |
 |  1.4 |  4h  | javafx saatu toimimaan, tehty sudokugeneraattori                   |
 |  7.4 |  6h  | paranneltu sudokugeneraattoria, lisätty alkeellinen käyttöliittymä |
-|  8.4 |  2h  | paranneltu käyttöliittymää                                         |
+|  8.4 |  4h  | paranneltu käyttöliittymää ja lisätty toiminnallisuuksia           |
