@@ -160,18 +160,18 @@ public class SudokuGenerator {
     }
     
 //    for development purposes only
-    public void printSudoku(int[][] sudoku) {
-        for (int i = 0; i < 9; i++) {
-            if (i == 3 || i == 6) System.out.println("---------------------");
-            
-            String line = "";
-            
-            for (int j = 0; j < 9; j++) {
-                if (j == 3 || j == 6) line += " |";
-                line += " " + sudoku[i][j];
-            }
-            
-            System.out.println(line.trim());
-        }
-    }
+//    public void printSudoku(int[][] sudoku) {
+//        for (int i = 0; i < 9; i++) {
+//            if (i == 3 || i == 6) System.out.println("---------------------");
+//            
+//            String line = "";
+//            
+//            for (int j = 0; j < 9; j++) {
+//                if (j == 3 || j == 6) line += " |";
+//                line += " " + sudoku[i][j];
+//            }
+//            
+//            System.out.println(line.trim());
+//        }
+//    }
 }

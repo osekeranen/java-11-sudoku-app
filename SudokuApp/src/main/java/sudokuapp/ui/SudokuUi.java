@@ -39,31 +39,7 @@ public class SudokuUi extends Application {
         this.generateSudoku(30);
         this.createGrid();
         
-        Button emptySudoku = new Button("E");
-        emptySudoku.setFont(Font.font("Monospaced", 16));
-        emptySudoku.setOnAction(e -> {
-            this.createGrid();
-        });
-        
-        Button checkSudoku = new Button("C");
-        checkSudoku.setFont(Font.font("Monospaced", 16));
-        checkSudoku.setOnAction(e ->{
-            
-        });
-        
-        Button newSudoku = new Button("N");
-        newSudoku.setFont(Font.font("Monospaced", 16));
-        newSudoku.setOnAction(e ->{
-            this.generateSudoku(30);
-            this.createGrid();
-        });
-        
-        Pane sudokuButtonSpacer = new Pane();
-        HBox.setHgrow(sudokuButtonSpacer, Priority.ALWAYS);
-        
-        sudokuButtons = new HBox();
-        sudokuButtons.setPadding(new Insets(10, 10, 0, 10));
-        sudokuButtons.getChildren().addAll(sudokuButtonSpacer, emptySudoku, checkSudoku, newSudoku);
+        this.createSudokuButtons();
         
         sudokuLayout = new VBox();
         
@@ -144,5 +120,33 @@ public class SudokuUi extends Application {
             cellMap.put(y * 9 + x, button);
             gridMap.get(grid).add(button, x, y);
         }
+    }
+    
+    private void createSudokuButtons() {
+        Button emptySudoku = new Button("E");
+        emptySudoku.setFont(Font.font("Monospaced", 16));
+        emptySudoku.setOnAction(e -> {
+            this.createGrid();
+        });
+        
+        Button checkSudoku = new Button("C");
+        checkSudoku.setFont(Font.font("Monospaced", 16));
+        checkSudoku.setOnAction(e ->{
+            
+        });
+        
+        Button newSudoku = new Button("N");
+        newSudoku.setFont(Font.font("Monospaced", 16));
+        newSudoku.setOnAction(e ->{
+            this.generateSudoku(30);
+            this.createGrid();
+        });
+        
+        Pane sudokuButtonSpacer = new Pane();
+        HBox.setHgrow(sudokuButtonSpacer, Priority.ALWAYS);
+        
+        sudokuButtons = new HBox();
+        sudokuButtons.setPadding(new Insets(10, 10, 0, 10));
+        sudokuButtons.getChildren().addAll(sudokuButtonSpacer, emptySudoku, checkSudoku, newSudoku);
     }
 }
