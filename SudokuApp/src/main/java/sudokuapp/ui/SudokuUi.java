@@ -48,7 +48,7 @@ public class SudokuUi extends Application {
         Button checkSudoku = new Button("C");
         checkSudoku.setFont(Font.font("Monospaced", 16));
         checkSudoku.setOnAction(e ->{
-            
+            this.createGrid();
         });
         
         Button newSudoku = new Button("N");
@@ -82,7 +82,7 @@ public class SudokuUi extends Application {
         completeSudoku = generator.generateSudoku();
         emptySudoku = generator.generateEmptySudoku(completeSudoku, clues);
     }
-    
+
     private void createGrid() {
         gridMap = new HashMap<>();
         
