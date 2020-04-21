@@ -9,6 +9,7 @@ SudokuApp luo tällä hetkellä sudokunsa luomalla ensin ylimmän rivin, jossa o
 ## Komennot
 
 Käynnistäminen: `mvn compile exec:java -Dexec.mainClass=sudokuapp.Main`  
+jar-tiedosto: `mvn package`  
 Testit: `mvn test`  
 Checkstyletarkistus: `mvn jxr:jxr checkstyle:checkstyle`  
 Testikattavuus: `mvn test jacoco:report`  
