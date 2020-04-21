@@ -45,6 +45,10 @@ public class SudokuUi extends Application {
     
     private int difficulty;
     
+    public static void main(String[] args) {
+        Application.launch(args);
+    }
+    
     @Override
     public void start(Stage stage) {
         this.stage = stage;
