@@ -17,4 +17,4 @@ Testikattavuus: `mvn test jacoco:report`
 
 [vaatimusmäärittely](https://github.com/osekeranen/ot-harjoitustyo/blob/master/dokumentointi/vaatimusmaarittely.md)  
 [työaikakirjanpito](https://github.com/osekeranen/ot-harjoitustyo/blob/master/dokumentointi/tyoaikakirjanpito.md)  
-[luokkakaavio](https://github.com/osekeranen/ot-harjoitustyo/blob/master/dokumentointi/arkkitehtuuri.md)
+[arkkitehtuuri](https://github.com/osekeranen/ot-harjoitustyo/blob/master/dokumentointi/arkkitehtuuri.md)
