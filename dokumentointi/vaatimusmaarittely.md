@@ -18,13 +18,13 @@ Sovellus aukeaa ns. Tervetuloa-näkymään, josta pelaa-nappia klikkaamalla siir
 
 * Käyttäjä voi pelata sudokua asettelemalla numeroita ristikkoon *tehty*
 
-* Käyttäjä voi tarkistaa sudokun painamalla tarkista-nappia
+* Käyttäjä voi tarkistaa sudokun painamalla tarkista-nappia *tehty*
 
-* Käyttäjä voi tyhjentää ristikon painamalla tyhjennä-nappia
+* Käyttäjä voi tyhjentää ristikon painamalla tyhjennä-nappia *tehty*
 
 ## Jatkokehitysideoita
 
-* Käyttäjä voi valita vaikeusasteen, jonka perusteella sovellus luo sudokuristikon
+* Käyttäjä voi valita vaikeusasteen, jonka perusteella sovellus luo sudokuristikon *tehty*
 
 * Vaikeusasteen mukaan toimiva tarkistus
   * Helpolla vaikeusasteella tarkistus ilmoittaa jokaisen väärän numeron
