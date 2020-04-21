@@ -8,6 +8,8 @@ SudokuApp luo tällä hetkellä sudokunsa luomalla ensin ylimmän rivin, jossa o
 
 ## Komennot
 
+Java-projektin kansioon pääsee komennolla `cd SudokuApp`
+
 Käynnistäminen: `mvn compile exec:java -Dexec.mainClass=sudokuapp.Main`  
 jar-tiedosto: `mvn package`  
 Testit: `mvn test`  
