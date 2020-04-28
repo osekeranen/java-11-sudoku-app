@@ -17,8 +17,10 @@ Java-projektin kansioon pääsee komennolla `cd SudokuApp`
 Käynnistäminen: `mvn compile exec:java -Dexec.mainClass=sudokuapp.Main`  
 jar-tiedosto: `mvn package`  
 Testit: `mvn test`  
-Checkstyletarkistus: `mvn jxr:jxr checkstyle:checkstyle`  
 Testikattavuus: `mvn test jacoco:report`  
+Checkstyletarkistus: `mvn jxr:jxr checkstyle:checkstyle`  
+Javadoc: `mvn javadoc:javadoc`  
+HUOM! Javadocin luominen vaatii että JAVA_HOME on asetettu.  
 
 ## Dokumentaatio
 
