@@ -43,7 +43,6 @@ public class SudokuUi extends Application {
     
     private HashMap<Integer, GridPane> gridMap;
     private HashMap<Integer, Button> cellMap;
-    private ArrayList<Button> uiButtonList;
     
     private int[][] completeSudoku;
     private int[][] emptySudoku;
@@ -220,7 +219,30 @@ public class SudokuUi extends Application {
     }
     
     private boolean checkSudoku() {
-        return checker.checkSudoku(cellMap, completeSudoku);
+        int[][] sudoku = new int[9][9];
+        
+        for (int i = 0; i < cellMap.size(); i++) {
+            int x = i % 9;
+            int y = i / 9;
+            
+            if (cellMap.get(i).getText().equals(" ")) {
+                sudoku[y][x] = 0;
+            } else {
+                sudoku[y][x] = Integer.valueOf(cellMap.get(i).getText());
+            }
+        }
+        
+        ArrayList<Integer> incorrectCells = checker.checkSudoku(sudoku, completeSudoku);
+        
+        this.paintSudokuCells(incorrectCells);
+        
+        return incorrectCells.isEmpty();
+    }
+    
+    private void paintSudokuCells(ArrayList<Integer> incorrectCells) {
+        for (Integer i : incorrectCells) {
+            cellMap.get(i).setStyle("-fx-text-fill: red");
+        }
     }
 
     private void makeGrid() {
@@ -293,8 +315,6 @@ public class SudokuUi extends Application {
         sudokuButtons = new HBox();
         sudokuButtons.setPadding(new Insets(10, 18, 0, 10));
         
-        uiButtonList = new ArrayList<>();
-        
         this.makeBackButton();
         
         Pane sudokuButtonSpacer = new Pane();
@@ -313,7 +333,6 @@ public class SudokuUi extends Application {
             this.stage.setScene(menuScene);
         });
         
-        uiButtonList.add(back);
         sudokuButtons.getChildren().add(back);
     }
     
@@ -326,7 +345,6 @@ public class SudokuUi extends Application {
             }
         });
         
-        uiButtonList.add(checkSudoku);
         sudokuButtons.getChildren().add(checkSudoku);
     }
     
@@ -337,7 +355,6 @@ public class SudokuUi extends Application {
             this.makeGrid();
         });
         
-        uiButtonList.add(emptySudoku);
         sudokuButtons.getChildren().add(emptySudoku);
     }
     
@@ -349,7 +366,6 @@ public class SudokuUi extends Application {
             this.makeGrid();
         });
         
-        uiButtonList.add(newSudoku);
         sudokuButtons.getChildren().add(newSudoku);
     }
 }

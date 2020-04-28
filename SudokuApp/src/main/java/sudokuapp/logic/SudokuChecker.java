@@ -1,5 +1,6 @@
 package sudokuapp.logic;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import javafx.scene.control.Button;
 
@@ -21,24 +22,17 @@ public class SudokuChecker {
      * @param completeSudoku  a complete sudoku to check filled sudoku with
      * @return boolean whether the sudoku is correct or not
      */
-    public boolean checkSudoku(HashMap<Integer, Button> cellMap, int[][] completeSudoku) {
-        boolean ollKorrect = true;
+    public ArrayList<Integer> checkSudoku(int[][] sudoku, int[][] completeSudoku) {
+        ArrayList<Integer> incorrectCells = new ArrayList<>();
         
-        for (int i = 0; i < 81; i++) {
-            if (cellMap.get(i).getText().equals(" ")) {
-                ollKorrect = false;
-                continue;
-            }
-            
-            int x = i % 9;
-            int y = i / 9;
-
-            if (Integer.valueOf(cellMap.get(i).getText()) != completeSudoku[y][x]) {
-                cellMap.get(i).setStyle("-fx-text-fill: red");
-                ollKorrect = false;
+        for (int y = 0; y < 9; y++) {
+            for (int x = 0; x < 9; x++) {
+                if (sudoku[y][x] != completeSudoku[y][x]) {
+                    incorrectCells.add(y * 9 + x);
+                }
             }
         }
         
-        return ollKorrect;
+        return incorrectCells;
     }
 }
