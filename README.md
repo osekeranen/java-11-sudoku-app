@@ -19,7 +19,8 @@ jar-tiedosto: `mvn package`
 Testit: `mvn test`  
 Testikattavuus: `mvn test jacoco:report`  
 Checkstyletarkistus: `mvn jxr:jxr checkstyle:checkstyle`  
-Javadoc: `mvn javadoc:javadoc` HUOM! Javadocin luominen vaatii että JAVA_HOME on asetettu.  
+Javadoc: `mvn javadoc:javadoc`  
+HUOM! Javadocin luominen vaatii että JAVA_HOME on asetettu.  
 
 ## Dokumentaatio
 
