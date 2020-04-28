@@ -54,6 +54,7 @@ public class SudokuUi extends Application {
         this.stage = stage;
         
         this.makeMenuScene();
+        
         this.makeDifficultyScene();
         difficulty = 30;
         this.generateSudoku(difficulty);
@@ -297,7 +298,7 @@ public class SudokuUi extends Application {
     
     private void makeSudokuButtons() {
         sudokuButtons = new HBox();
-        sudokuButtons.setPadding(new Insets(10, 10, 0, 10));
+        sudokuButtons.setPadding(new Insets(10, 18, 0, 10));
         
         uiButtonList = new ArrayList<>();
         
