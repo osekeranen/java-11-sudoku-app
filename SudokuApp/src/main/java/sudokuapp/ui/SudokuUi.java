@@ -19,6 +19,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import sudokuapp.logic.Difficulty;
+import sudokuapp.logic.SudokuChecker;
 import sudokuapp.logic.SudokuGenerator;
 
 public class SudokuUi extends Application {
@@ -46,6 +47,9 @@ public class SudokuUi extends Application {
     
     private Difficulty difficulty;
     
+    private SudokuGenerator generator;
+    private SudokuChecker checker;
+    
     public static void main(String[] args) {
         Application.launch(args);
     }
@@ -53,6 +57,9 @@ public class SudokuUi extends Application {
     @Override
     public void start(Stage stage) {
         this.stage = stage;
+        
+        generator = new SudokuGenerator();
+        checker = new SudokuChecker();
         
         this.makeMenuScene();
         
@@ -205,30 +212,12 @@ public class SudokuUi extends Application {
     }
     
     private void generateSudoku(int clues) {
-        SudokuGenerator generator = new SudokuGenerator();
         completeSudoku = generator.generateSudoku();
         emptySudoku = generator.generateEmptySudoku(completeSudoku, clues);
     }
     
     private boolean checkSudoku() {
-        boolean ollKorrect = true;
-        
-        for (int i = 0; i < 81; i++) {
-            if (cellMap.get(i).getText().equals(" ")) {
-                ollKorrect = false;
-                continue;
-            }
-            
-            int x = i % 9;
-            int y = i / 9;
-
-            if (Integer.valueOf(cellMap.get(i).getText()) != completeSudoku[y][x]) {
-                cellMap.get(i).setStyle("-fx-text-fill: red");
-                ollKorrect = false;
-            }
-        }
-        
-        return ollKorrect;
+        return checker.checkSudoku(cellMap, completeSudoku);
     }
 
     private void makeGrid() {
