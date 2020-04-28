@@ -22,6 +22,9 @@ import sudokuapp.logic.Difficulty;
 import sudokuapp.logic.SudokuChecker;
 import sudokuapp.logic.SudokuGenerator;
 
+/**
+ * User interface for SudokuApp
+ */
 public class SudokuUi extends Application {
     private Stage stage;
     

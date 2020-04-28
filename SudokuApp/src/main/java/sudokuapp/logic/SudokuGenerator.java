@@ -217,23 +217,23 @@ public class SudokuGenerator {
         }
     }
     
-    /**
-     * A development tool for printing out a sudoku in the console
-     * 
-     * @param sudoku sudoku to get printed
-     */
-    public void printSudoku(int[][] sudoku) {
-        for (int i = 0; i < 9; i++) {
-            if (i == 3 || i == 6) System.out.println("---------------------");
-            
-            String line = "";
-            
-            for (int j = 0; j < 9; j++) {
-                if (j == 3 || j == 6) line += " |";
-                line += " " + sudoku[i][j];
-            }
-            
-            System.out.println(line.trim());
-        }
-    }
+//    /**
+//     * A development tool for printing out a sudoku in the console
+//     * 
+//     * @param sudoku sudoku to get printed
+//     */
+//    public void printSudoku(int[][] sudoku) {
+//        for (int i = 0; i < 9; i++) {
+//            if (i == 3 || i == 6) System.out.println("---------------------");
+//            
+//            String line = "";
+//            
+//            for (int j = 0; j < 9; j++) {
+//                if (j == 3 || j == 6) line += " |";
+//                line += " " + sudoku[i][j];
+//            }
+//            
+//            System.out.println(line.trim());
+//        }
+//    }
 }
