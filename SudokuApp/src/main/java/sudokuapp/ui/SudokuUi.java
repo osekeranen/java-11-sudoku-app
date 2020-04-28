@@ -18,6 +18,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
+import sudokuapp.logic.Difficulty;
 import sudokuapp.logic.SudokuGenerator;
 
 public class SudokuUi extends Application {
@@ -43,7 +44,7 @@ public class SudokuUi extends Application {
     private int[][] completeSudoku;
     private int[][] emptySudoku;
     
-    private int difficulty;
+    private Difficulty difficulty;
     
     public static void main(String[] args) {
         Application.launch(args);
@@ -56,8 +57,8 @@ public class SudokuUi extends Application {
         this.makeMenuScene();
         
         this.makeDifficultyScene();
-        difficulty = 30;
-        this.generateSudoku(difficulty);
+        difficulty = Difficulty.BEGINNER;
+        this.generateSudoku(difficulty.getClues());
         
         this.makeSudokuScene();
         
@@ -138,14 +139,14 @@ public class SudokuUi extends Application {
     }
     
     private void makeLevel1Button() {
-        Button beginner = new Button("Beginner");
+        Button beginner = new Button(Difficulty.BEGINNER.toString());
         beginner.setFont(Font.font(24));
         beginner.setMinSize(188, 46);
         beginner.setMaxSize(188, 46);
         
         beginner.setOnAction(e -> {
-            difficulty = 40;
-            this.generateSudoku(difficulty);
+            difficulty = Difficulty.BEGINNER;
+            this.generateSudoku(difficulty.getClues());
             this.makeGrid();
             stage.setScene(sudokuScene);
         });
@@ -154,14 +155,14 @@ public class SudokuUi extends Application {
     }
     
     private void makeLevel2Button() {
-        Button intermediate = new Button("Intermediate");
+        Button intermediate = new Button(Difficulty.INTERMEDIATE.toString());
         intermediate.setFont(Font.font(24));
         intermediate.setMinSize(188, 46);
         intermediate.setMaxSize(188, 46);
         
         intermediate.setOnAction(e -> {
-            difficulty = 30;
-            this.generateSudoku(difficulty);
+            difficulty = Difficulty.INTERMEDIATE;
+            this.generateSudoku(difficulty.getClues());
             this.makeGrid();
             stage.setScene(sudokuScene);
         });
@@ -170,14 +171,14 @@ public class SudokuUi extends Application {
     }
     
     private void makeLevel3Button() {
-        Button Advanced = new Button("Advanced");
+        Button Advanced = new Button(Difficulty.ADVANCED.toString());
         Advanced.setFont(Font.font(24));
         Advanced.setMinSize(188, 46);
         Advanced.setMaxSize(188, 46);
         
         Advanced.setOnAction(e -> {
-            difficulty = 20;
-            this.generateSudoku(difficulty);
+            difficulty = Difficulty.ADVANCED;
+            this.generateSudoku(difficulty.getClues());
             this.makeGrid();
             stage.setScene(sudokuScene);
         });
@@ -352,7 +353,7 @@ public class SudokuUi extends Application {
         Button newSudoku = new Button("\u21BB");
         newSudoku.setFont(Font.font("Monospaced", FontWeight.BOLD, 16));
         newSudoku.setOnAction(e ->{
-            this.generateSudoku(difficulty);
+            this.generateSudoku(difficulty.getClues());
             this.makeGrid();
         });
         
