@@ -16,11 +16,11 @@ public class SudokuChecker {
     }
     
     /**
-     * Method for checking whether sudoku is filled correctly or not
+     * Method for checking if the sudoku is correct or not
      * 
-     * @param cellMap a HashMap containing sudoku cell buttons
-     * @param completeSudoku  a complete sudoku to check filled sudoku with
-     * @return boolean whether the sudoku is correct or not
+     * @param sudoku sudoku that will be checked
+     * @param completeSudoku sudoku that is correct
+     * @return an ArrayList of indexes of sudoku cells that are not correct
      */
     public ArrayList<Integer> checkSudoku(int[][] sudoku, int[][] completeSudoku) {
         ArrayList<Integer> incorrectCells = new ArrayList<>();
