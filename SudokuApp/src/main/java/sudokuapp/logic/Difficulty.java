@@ -1,4 +1,4 @@
-package sudokuapp.domain;
+package sudokuapp.logic;
 
 /**
  * An enum for managing difficulty settings

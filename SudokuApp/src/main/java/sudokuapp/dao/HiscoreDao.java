@@ -1,7 +1,7 @@
 package sudokuapp.dao;
 
 import java.util.List;
-import sudokuapp.domain.Hiscore;
+import sudokuapp.logic.Hiscore;
 
 /**
  * Interface for storing hiscores

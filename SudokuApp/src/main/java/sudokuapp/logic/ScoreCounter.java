@@ -40,6 +40,8 @@ public class ScoreCounter {
         
         if (score < 0) {
             return 0;
-        } else return score;
+        } else {
+            return score;
+        }
     }
 }

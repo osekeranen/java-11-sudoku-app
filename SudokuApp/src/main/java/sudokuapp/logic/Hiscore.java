@@ -1,4 +1,4 @@
-package sudokuapp.domain;
+package sudokuapp.logic;
 
 /**
  * An object for hiscores

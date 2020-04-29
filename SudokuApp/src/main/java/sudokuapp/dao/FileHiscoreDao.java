@@ -5,8 +5,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
-import sudokuapp.domain.Difficulty;
-import sudokuapp.domain.Hiscore;
+import sudokuapp.logic.Difficulty;
+import sudokuapp.logic.Hiscore;
 
 /**
  * Saving hiscores in a file
@@ -26,7 +26,7 @@ public class FileHiscoreDao implements HiscoreDao {
                 String name = parts[0];
                 int score = Integer.valueOf(parts[1]);
                 Difficulty difficulty = Difficulty.valueOf(parts[2]);
-                Hiscore hiscore = new Hiscore (difficulty, score, name);
+                Hiscore hiscore = new Hiscore(difficulty, score, name);
                 hiscores.add(hiscore);
             }
         } catch (Exception e) {
