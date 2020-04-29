@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 import sudokuapp.domain.Difficulty;
 import sudokuapp.domain.Hiscore;
@@ -13,7 +12,7 @@ import sudokuapp.domain.Hiscore;
  * Saving hiscores in a file
  */
 public class FileHiscoreDao implements HiscoreDao {
-    private List<Hiscore> hiscores;
+    private ArrayList<Hiscore> hiscores;
     private String file;
 
     public FileHiscoreDao(String file) throws Exception {
@@ -50,7 +49,7 @@ public class FileHiscoreDao implements HiscoreDao {
     }
     
     @Override
-    public List<Hiscore> getAll() {
+    public ArrayList<Hiscore> getAll() {
         return hiscores;
     }
     

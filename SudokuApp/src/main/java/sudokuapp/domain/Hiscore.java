@@ -1,9 +1,9 @@
 package sudokuapp.domain;
 
 /**
- *
+ * An object for hiscores
  */
-public class Hiscore {
+public class Hiscore implements Comparable<Hiscore> {
     private int score;
     private String name;
     private Difficulty difficulty;
@@ -11,6 +11,7 @@ public class Hiscore {
     /**
      * Constructor for an hiscore
      * 
+     * @param difficulty difficulty on which the game was completed
      * @param score amount of points
      * @param name name of player
      */
@@ -30,5 +31,10 @@ public class Hiscore {
 
     public String getName() {
         return name;
+    }
+
+    @Override
+    public int compareTo(Hiscore t) {
+        return t.score - this.score;
     }
 }

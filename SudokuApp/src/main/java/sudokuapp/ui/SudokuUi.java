@@ -1,6 +1,7 @@
 package sudokuapp.ui;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import javafx.application.Application;
 import javafx.geometry.Insets;
@@ -33,12 +34,27 @@ public class SudokuUi extends Application {
     private Stage stage;
     
     private Scene menuScene;
+    private Scene hiscoreScene;
     private Scene difficultyScene;
     private Scene sudokuScene;
     private Scene congratulationScene;
     
     private VBox menuButtons;
     private VBox menuLayout;
+    
+    private Label hiscoreDifficultyLabel;
+    
+    private VBox hiscoreNames;
+    private VBox hiscoreScores;
+    private BorderPane hiscoreNamesAndScores;
+    
+    private HashMap<Integer, Label> nameMap;
+    private HashMap<Integer, Label> scoreMap;
+    
+    private HBox hiscoreDifficultyButtons;
+    private VBox hiscoreButtons;
+    
+    private VBox hiscoreLayout;
     
     private VBox difficultyButtons;
     
@@ -67,6 +83,8 @@ public class SudokuUi extends Application {
     private FileHiscoreDao hiscoreDao;
     private String hiscoresFile;
     
+    private ArrayList<Hiscore> hiscores;
+    
     public static void main(String[] args) {
         Application.launch(args);
     }
@@ -85,6 +103,8 @@ public class SudokuUi extends Application {
         checker = new SudokuChecker();
         
         this.makeMenuScene();
+        
+        this.makeHiscoreScene();
         
         this.makeDifficultyScene();
         
@@ -146,7 +166,10 @@ public class SudokuUi extends Application {
         hiscoreButton.setMaxSize(135, 46);
         
         hiscoreButton.setOnAction(e -> {
-            
+            hiscores = hiscoreDao.getAll();
+            Collections.sort(hiscores);
+            this.makeHiscoreScene();
+            stage.setScene(hiscoreScene);
         });
         
         menuButtons.getChildren().add(hiscoreButton);
@@ -163,6 +186,186 @@ public class SudokuUi extends Application {
         });
         
         menuButtons.getChildren().add(exitButton);
+    }
+    
+    private void makeHiscoreScene() {
+        hiscoreDifficultyLabel = new Label("Select difficulty");
+        hiscoreDifficultyLabel.setFont(Font.font(36));
+        
+        hiscoreLayout = new VBox();
+        hiscoreLayout.setAlignment(Pos.TOP_CENTER);
+        hiscoreLayout.setSpacing(20);
+        hiscoreLayout.getChildren().add(hiscoreDifficultyLabel);
+        hiscoreLayout.setPadding(new Insets(10, 18, 10, 10));
+        
+        this.makeHiscoreNames();
+        this.makeHiscoreScores();
+        
+        hiscoreNamesAndScores = new BorderPane();
+        hiscoreNamesAndScores.setPadding(new Insets(0, 10, 0, 10));
+        hiscoreNamesAndScores.setLeft(hiscoreNames);
+        hiscoreNamesAndScores.setRight(hiscoreScores);
+        
+        hiscoreLayout.getChildren().add(hiscoreNamesAndScores);
+        
+        this.makeHiscoreButtons();
+        hiscoreLayout.getChildren().add(hiscoreButtons);
+        
+        hiscoreScene = new Scene(hiscoreLayout, 336, 403);
+    }
+    
+    private void makeHiscoreNames() {
+        hiscoreNames = new VBox();
+        hiscoreNames.setSpacing(10);
+        
+        nameMap = new HashMap<>();
+        for (int i = 0; i < 5; i++) {
+            Label nameLabel = new Label("");
+            nameLabel.setFont(Font.font(24));
+            hiscoreNames.getChildren().add(nameLabel);
+            nameMap.put(i, nameLabel);
+        }
+    }
+    
+    private void makeHiscoreScores() {
+        hiscoreScores = new VBox();
+        hiscoreScores.setSpacing(10);
+        
+        scoreMap = new HashMap<>();
+        for (int i = 0; i < 5; i++) {
+            Label scoreLabel = new Label("");
+            scoreLabel.setFont(Font.font(24));
+            hiscoreScores.getChildren().add(scoreLabel);
+            scoreMap.put(i, scoreLabel);
+        }
+    }
+    
+    private void makeHiscoreButtons() {
+        hiscoreDifficultyButtons = new HBox();
+        hiscoreDifficultyButtons.setAlignment(Pos.CENTER);
+        hiscoreDifficultyButtons.setSpacing(10);
+        this.makeBeginnerHiscoresButton();
+        this.makeIntermediateHiscoresButton();
+        this.makeAdvancedHiscoresButton();
+        
+        hiscoreButtons = new VBox();
+        hiscoreButtons.setAlignment(Pos.CENTER);
+        hiscoreButtons.setSpacing(10);
+        hiscoreButtons.getChildren().addAll(hiscoreDifficultyButtons);
+        
+        this.makeHiscoreBackButton();
+    }
+    
+    private void makeBeginnerHiscoresButton() {
+        Button beginnerButton = new Button("BEG");
+        beginnerButton.setFont(Font.font(16));
+        beginnerButton.setMinSize(61, 32);
+        beginnerButton.setMaxSize(61, 32);
+        
+        beginnerButton.setOnAction(e -> {
+            hiscoreDifficultyLabel.setText(Difficulty.BEGINNER.toString());
+            
+            int i = 0;
+            
+            for (Hiscore hiscore : hiscores) {
+                if (i >= 5) {
+                    break;
+                }
+                
+                if (hiscore.getDifficulty() == Difficulty.BEGINNER) {
+                    nameMap.get(i).setText(hiscore.getName());
+                    scoreMap.get(i).setText(String.valueOf(hiscore.getScore()));
+                    i++;
+                }
+            }
+            
+            while (i < 5) {
+                nameMap.get(i).setText("");
+                scoreMap.get(i).setText("");
+                i++;
+            }
+        });
+        
+        hiscoreDifficultyButtons.getChildren().add(beginnerButton);
+    }
+    
+    private void makeIntermediateHiscoresButton() {
+        Button intermediateButton = new Button("INT");
+        intermediateButton.setFont(Font.font(16));
+        intermediateButton.setMinSize(61, 32);
+        intermediateButton.setMaxSize(61, 32);
+        
+        intermediateButton.setOnAction(e -> {
+            hiscoreDifficultyLabel.setText(Difficulty.INTERMEDIATE.toString());
+            
+            int i = 0;
+            
+            for (Hiscore hiscore : hiscores) {
+                if (i >= 5) {
+                    break;
+                }
+                
+                if (hiscore.getDifficulty() == Difficulty.INTERMEDIATE) {
+                    nameMap.get(i).setText(hiscore.getName());
+                    scoreMap.get(i).setText(String.valueOf(hiscore.getScore()));
+                    i++;
+                }
+            }
+            
+            while (i < 5) {
+                nameMap.get(i).setText("");
+                scoreMap.get(i).setText("");
+                i++;
+            }
+        });
+        
+        hiscoreDifficultyButtons.getChildren().add(intermediateButton);
+    }
+    
+    private void makeAdvancedHiscoresButton() {
+        Button advancedButton = new Button("ADV");
+        advancedButton.setFont(Font.font(16));
+        advancedButton.setMinSize(61, 32);
+        advancedButton.setMaxSize(61, 32);
+        
+        advancedButton.setOnAction(e -> {
+            hiscoreDifficultyLabel.setText(Difficulty.ADVANCED.toString());
+            
+            int i = 0;
+            
+            for (Hiscore hiscore : hiscores) {
+                if (i >= 5) {
+                    break;
+                }
+                
+                if (hiscore.getDifficulty() == Difficulty.ADVANCED) {
+                    nameMap.get(i).setText(hiscore.getName());
+                    scoreMap.get(i).setText(String.valueOf(hiscore.getScore()));
+                    i++;
+                }
+            }
+            
+            while (i < 5) {
+                nameMap.get(i).setText("");
+                scoreMap.get(i).setText("");
+                i++;
+            }
+        });
+        
+        hiscoreDifficultyButtons.getChildren().add(advancedButton);
+    }
+    
+    private void makeHiscoreBackButton() {
+        Button backButton = new Button("Back");
+        backButton.setFont(Font.font(16));
+        backButton.setMinSize(61, 32);
+        backButton.setMaxSize(61, 32);
+        
+        backButton.setOnAction(e -> {
+            stage.setScene(menuScene);
+        });
+        
+        hiscoreButtons.getChildren().add(backButton);
     }
     
     private void makeDifficultyScene() {
