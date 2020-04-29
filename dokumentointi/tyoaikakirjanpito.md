@@ -10,5 +10,5 @@
 |  8.4 |   4h  | paranneltu käyttöliittymää ja lisätty toiminnallisuuksia                   |
 | 21.4 |   7h  | lisätty valikko, vaikeusasteet ja tarkistukselle toiminnallisuus           |
 | 28.4 |   4h  | selvennetty sovelluksen pakkausrakennetta ja lisätty toiminnallisuuksia    |
-| 29.4 |   8h  | lisätty hiscoret ja tietojen pysyväistallennus, paranneltu dokumentaatiota |
-| yht. | 37,5h |                                                                            |
+| 29.4 |  14h  | lisätty hiscoret ja tietojen pysyväistallennus, paranneltu dokumentaatiota ja tehty koko gui uusiksi |
+| yht. | 43,5h |                                                                            |
