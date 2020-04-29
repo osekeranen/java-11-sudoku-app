@@ -23,16 +23,16 @@ public class SudokuChecker {
      * @return an ArrayList of indexes of sudoku cells that are not correct
      */
     public ArrayList<Integer> checkSudoku(int[][] sudoku, int[][] completeSudoku) {
-        ArrayList<Integer> incorrectCells = new ArrayList<>();
+        ArrayList<Integer> mistakes = new ArrayList<>();
         
         for (int y = 0; y < 9; y++) {
             for (int x = 0; x < 9; x++) {
                 if (sudoku[y][x] != completeSudoku[y][x]) {
-                    incorrectCells.add(y * 9 + x);
+                    mistakes.add(y * 9 + x);
                 }
             }
         }
         
-        return incorrectCells;
+        return mistakes;
     }
 }

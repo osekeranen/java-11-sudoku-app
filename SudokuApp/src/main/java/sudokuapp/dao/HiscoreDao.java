@@ -7,6 +7,7 @@ import sudokuapp.logic.Hiscore;
  * Interface for storing hiscores
  */
 public interface HiscoreDao {
+    
     /**
      * Method for getting a list of all hiscores
      * 

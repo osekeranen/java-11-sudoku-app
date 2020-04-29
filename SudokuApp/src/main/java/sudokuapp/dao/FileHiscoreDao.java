@@ -34,7 +34,7 @@ public class FileHiscoreDao implements HiscoreDao {
             writer.close();
         }
     }
-    
+     
     public void add(Hiscore hiscore) throws Exception {
         hiscores.add(hiscore);
         this.save();
