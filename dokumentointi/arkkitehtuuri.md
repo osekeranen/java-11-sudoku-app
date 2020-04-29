@@ -1,6 +1,8 @@
 # Arkkitehtuurikuvaus
 ## Rakenne
-Koodin pakkausrakenne on seuraava:  
+Koodin pakkausrakenne on seuraava:
+
+![Sudokusovelluksen pakkauskaavio](sudoku-pakkauskaavio.png)  
 
 Pakkaus *sudokuapp.ui* sisältää JavaFX:llä toteutetun graafisen käyttöliittymän, *sudokuapp.logic* sovelluslogiikan ja *sudokuapp.dao* tietojen pysyväistallenuksen.
 
