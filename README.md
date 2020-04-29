@@ -1,7 +1,6 @@
 # SudokuApp
 
-Sovellus on suunniteltu perinteisen sudoku-pelin pelaamista varten.
-
+SudokuApp on suunniteltu perinteisen sudoku-pelin pelaamista varten. Sovellus on toteutettu käyttäen Java 11:a ja JavaFX:a.
 ## Sudokun luomisesta
 
 SudokuApp luo tällä hetkellä sudokunsa luomalla ensin ylimmän rivin, jossa on numerot 1-9 satunnaisessa järjestyksessä. Tämän jälkeen se luo uuden rivin joka käytännössä on sama rivi kuin ylempi rivi, mutta numeroita on siirretty joko yksi tai kolme paikkaa oikealle. Lopuksi rivejä ja sarakkeita sekoitetaan. Etuna tässä on että algoritmi oli helppo luoda ja sovellus pystyy luomaan sudokuja nopeasti. Tämä luo kuitenkin hieman ennalta arvattavia sudokuja, joten tavoitteenani on luoda rekursiivinen sudokunluontialgoritmi. Kuitenkin kyseinen algoritmi ei varsinaisesti kuulu kurssin aihepiiriin, joten algoritmin kehittely jäänee kesälle tai aivan loppukurssille, mikäli aikaa riittää.
