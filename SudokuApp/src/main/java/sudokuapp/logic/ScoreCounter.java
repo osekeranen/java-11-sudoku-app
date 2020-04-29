@@ -1,9 +1,9 @@
 package sudokuapp.logic;
 
 /**
- * A Class for scoring games
+ * A class for scoring games
  */
-public class Score {
+public class ScoreCounter {
     private long startTime;
     private long endTime;
     
@@ -12,7 +12,7 @@ public class Score {
     /**
      * Constructor for Score-class
      */
-    public Score() {
+    public ScoreCounter() {
         startTime = System.currentTimeMillis();
     }
     

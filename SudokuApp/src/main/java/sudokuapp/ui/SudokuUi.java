@@ -19,13 +19,15 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
-import sudokuapp.logic.Difficulty;
-import sudokuapp.logic.Score;
+import sudokuapp.dao.FileHiscoreDao;
+import sudokuapp.domain.Difficulty;
+import sudokuapp.domain.Hiscore;
+import sudokuapp.logic.ScoreCounter;
 import sudokuapp.logic.SudokuChecker;
 import sudokuapp.logic.SudokuGenerator;
 
 /**
- * User interface for SudokuApp
+ * GUI for SudokuApp
  */
 public class SudokuUi extends Application {
     private Stage stage;
@@ -55,20 +57,29 @@ public class SudokuUi extends Application {
     
     private Difficulty difficulty;
     
-    private Score score;
-    private int scorePoints;
-    Label scoreLabel;
+    private ScoreCounter scoreCounter;
+    private int score;
+    private Label scoreLabel;
     
     private SudokuGenerator generator;
     private SudokuChecker checker;
+    
+    private FileHiscoreDao hiscoreDao;
+    private String hiscoresFile;
     
     public static void main(String[] args) {
         Application.launch(args);
     }
     
     @Override
-    public void start(Stage stage) {
+    public void start(Stage stage) throws Exception {
         this.stage = stage;
+        
+        String hiscoresFile = "hiscoresFile";
+        
+        hiscoreDao = new FileHiscoreDao(hiscoresFile);
+        
+        difficulty = Difficulty.BEGINNER;
         
         generator = new SudokuGenerator();
         checker = new SudokuChecker();
@@ -76,8 +87,6 @@ public class SudokuUi extends Application {
         this.makeMenuScene();
         
         this.makeDifficultyScene();
-        difficulty = Difficulty.BEGINNER;
-        this.generateSudoku(difficulty.getClues());
         
         this.makeSudokuScene();
         
@@ -227,6 +236,7 @@ public class SudokuUi extends Application {
         sudokuGrid.setVgap(10);
         sudokuGrid.setPadding(new Insets(10, 10, 10, 10));
         
+        this.generateSudoku(difficulty.getClues());
         this.makeGrid();
         
         this.makeSudokuButtons();
@@ -242,7 +252,7 @@ public class SudokuUi extends Application {
     private void generateSudoku(int clues) {
         completeSudoku = generator.generateSudoku();
         emptySudoku = generator.generateEmptySudoku(completeSudoku, clues);
-        score = new Score();
+        scoreCounter = new ScoreCounter();
     }
     
     private boolean checkSudoku() {
@@ -342,7 +352,7 @@ public class SudokuUi extends Application {
         sudokuButtons = new HBox();
         sudokuButtons.setPadding(new Insets(10, 18, 0, 10));
         
-        this.makeBackButton();
+        this.makeSudokuBackButton();
         
         Pane sudokuButtonSpacer = new Pane();
         HBox.setHgrow(sudokuButtonSpacer, Priority.ALWAYS);
@@ -353,7 +363,7 @@ public class SudokuUi extends Application {
         this.makeNewSudokuButton();
     }
     
-    private void makeBackButton() {
+    private void makeSudokuBackButton() {
         Button back = new Button("\u2190");
         back.setFont(Font.font("Monospaced", FontWeight.BOLD, 16));
         back.setMinSize(32, 32);
@@ -372,11 +382,11 @@ public class SudokuUi extends Application {
         checkSudoku.setMaxSize(32, 32);
         checkSudoku.setOnAction(e ->{
             if (this.checkSudoku()) {
-                scorePoints = score.getScore();
-                scoreLabel.setText("Your score: " + scorePoints);
+                score = scoreCounter.getScore();
+                scoreLabel.setText("Your score: " + score);
                 stage.setScene(congratulationScene);
             } else {
-                score.addFailedCheck();
+                scoreCounter.addFailedCheck();
             }
         });
         
@@ -443,6 +453,11 @@ public class SudokuUi extends Application {
         submitButton.setFont(Font.font(16));
         
         submitButton.setOnAction(e -> {
+            try {
+                hiscoreDao.add(new Hiscore(difficulty, score, yourName.getText()));
+            } catch (Exception ex) {
+                
+            }
             stage.setScene(menuScene);
         });
         
