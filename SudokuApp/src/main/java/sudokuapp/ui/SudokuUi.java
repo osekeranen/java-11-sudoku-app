@@ -8,6 +8,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
@@ -19,6 +20,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import sudokuapp.logic.Difficulty;
+import sudokuapp.logic.Score;
 import sudokuapp.logic.SudokuChecker;
 import sudokuapp.logic.SudokuGenerator;
 
@@ -31,6 +33,7 @@ public class SudokuUi extends Application {
     private Scene menuScene;
     private Scene difficultyScene;
     private Scene sudokuScene;
+    private Scene congratulationScene;
     
     private VBox menuButtons;
     private VBox menuLayout;
@@ -47,7 +50,14 @@ public class SudokuUi extends Application {
     private int[][] completeSudoku;
     private int[][] emptySudoku;
     
+    private VBox congratulationButtons;
+    private VBox congratulationLayout;
+    
     private Difficulty difficulty;
+    
+    private Score score;
+    private int scorePoints;
+    Label scoreLabel;
     
     private SudokuGenerator generator;
     private SudokuChecker checker;
@@ -71,6 +81,8 @@ public class SudokuUi extends Application {
         
         this.makeSudokuScene();
         
+        this.makeCongatulationScene();
+        
         this.stage.setMinWidth(336);
         this.stage.setMaxWidth(336);
         this.stage.setMinHeight(403);
@@ -82,10 +94,10 @@ public class SudokuUi extends Application {
     
     private void makeMenuScene() {
         Label sudokuLabel = new Label("Sudoku");
-        sudokuLabel.setFont(Font.font("Z003", 80));
+        sudokuLabel.setFont(Font.font(72));
         BorderPane sudokuLabelPane = new BorderPane();
         sudokuLabelPane.setCenter(sudokuLabel);
-        sudokuLabelPane.setPadding(new Insets(40, 0, 35, 0));
+        sudokuLabelPane.setPadding(new Insets(50, 0, 25, 0));
         
         this.makeMenuButtons();
         
@@ -101,14 +113,15 @@ public class SudokuUi extends Application {
         menuButtons.setAlignment(Pos.BOTTOM_CENTER);
         
         this.makePlayButton();
+        this.makeHiscoreButton();
         this.makeExitButton();
     }
     
     private void makePlayButton() {
         Button playButton = new Button("Play!");
         playButton.setFont(Font.font(24));
-        playButton.setMinSize(92, 46);
-        playButton.setMaxSize(92, 46);
+        playButton.setMinSize(135, 46);
+        playButton.setMaxSize(135, 46);
         
         playButton.setOnAction(e -> {
             stage.setScene(difficultyScene);
@@ -117,11 +130,24 @@ public class SudokuUi extends Application {
         menuButtons.getChildren().add(playButton);
     }
     
+    private void makeHiscoreButton() {
+        Button hiscoreButton = new Button("Hiscores");
+        hiscoreButton.setFont(Font.font(24));
+        hiscoreButton.setMinSize(135, 46);
+        hiscoreButton.setMaxSize(135, 46);
+        
+        hiscoreButton.setOnAction(e -> {
+            
+        });
+        
+        menuButtons.getChildren().add(hiscoreButton);
+    }
+    
     private void makeExitButton() {
         Button exitButton = new Button("Exit");
         exitButton.setFont(Font.font(24));
-        exitButton.setMinSize(92, 46);
-        exitButton.setMaxSize(92, 46);
+        exitButton.setMinSize(135, 46);
+        exitButton.setMaxSize(135, 46);
         
         exitButton.setOnAction(e -> {
             stage.close();
@@ -216,6 +242,7 @@ public class SudokuUi extends Application {
     private void generateSudoku(int clues) {
         completeSudoku = generator.generateSudoku();
         emptySudoku = generator.generateEmptySudoku(completeSudoku, clues);
+        score = new Score();
     }
     
     private boolean checkSudoku() {
@@ -329,6 +356,8 @@ public class SudokuUi extends Application {
     private void makeBackButton() {
         Button back = new Button("\u2190");
         back.setFont(Font.font("Monospaced", FontWeight.BOLD, 16));
+        back.setMinSize(32, 32);
+        back.setMaxSize(32, 32);
         back.setOnAction(e ->{
             this.stage.setScene(menuScene);
         });
@@ -339,9 +368,15 @@ public class SudokuUi extends Application {
     private void makeCheckButton() {
         Button checkSudoku = new Button("\u2714");
         checkSudoku.setFont(Font.font("Monospaced", 16));
+        checkSudoku.setMinSize(32, 32);
+        checkSudoku.setMaxSize(32, 32);
         checkSudoku.setOnAction(e ->{
             if (this.checkSudoku()) {
-                System.out.println("Congratulations!");
+                scorePoints = score.getScore();
+                scoreLabel.setText("Your score: " + scorePoints);
+                stage.setScene(congratulationScene);
+            } else {
+                score.addFailedCheck();
             }
         });
         
@@ -351,6 +386,8 @@ public class SudokuUi extends Application {
     private void makeEmptyButton() {
         Button emptySudoku = new Button("\u2718");
         emptySudoku.setFont(Font.font("Monospaced", 16));
+        emptySudoku.setMinSize(32, 32);
+        emptySudoku.setMaxSize(32, 32);
         emptySudoku.setOnAction(e -> {
             this.makeGrid();
         });
@@ -361,11 +398,54 @@ public class SudokuUi extends Application {
     private void makeNewSudokuButton() {
         Button newSudoku = new Button("\u21BB");
         newSudoku.setFont(Font.font("Monospaced", FontWeight.BOLD, 16));
+        newSudoku.setMinSize(32, 32);
+        newSudoku.setMaxSize(32, 32);
         newSudoku.setOnAction(e ->{
             this.generateSudoku(difficulty.getClues());
             this.makeGrid();
         });
         
         sudokuButtons.getChildren().add(newSudoku);
+    }
+    
+    private void makeCongatulationScene() {
+        Label congratulationLabel = new Label("Congratulations!");
+        congratulationLabel.setFont(Font.font(36));
+        
+        scoreLabel = new Label("Your score: " + 3600);
+        scoreLabel.setFont(Font.font(24));
+        
+        this.makeSubmitHiscoreButtons();
+        
+        congratulationLayout = new VBox();
+        congratulationLayout.setAlignment(Pos.TOP_CENTER);
+        congratulationLayout.setPadding(new Insets(80, 0, 0, 0));
+        congratulationLayout.setSpacing(10);
+        congratulationLayout.getChildren().addAll(congratulationLabel, scoreLabel, congratulationButtons);
+        
+        congratulationScene = new Scene(congratulationLayout, 336, 403);
+    }
+    
+    private void makeSubmitHiscoreButtons() {
+        congratulationButtons = new VBox();
+        congratulationButtons.setAlignment(Pos.CENTER);
+        congratulationButtons.setPadding(new Insets(30, 0, 0, 0));
+        congratulationButtons.setSpacing(10);
+        
+        TextField yourName = new TextField();
+        yourName.setMaxSize(188, 46);
+        yourName.setMinSize(188, 46);
+        yourName.setPromptText("Your name");
+        yourName.setFont(Font.font(24));
+        yourName.setAlignment(Pos.CENTER);
+        
+        Button submitButton = new Button("Submit");
+        submitButton.setFont(Font.font(16));
+        
+        submitButton.setOnAction(e -> {
+            stage.setScene(menuScene);
+        });
+        
+        congratulationButtons.getChildren().addAll(yourName, submitButton);
     }
 }
