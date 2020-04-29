@@ -8,7 +8,8 @@ SudokuApp luo tällä hetkellä sudokunsa luomalla ensin ylimmän rivin, jossa o
 
 ## Releaset
 
-[v1.0](https://github.com/osekeranen/ot-harjoitustyo/releases/tag/v1.0) *viimeisin*
+[v1.1](https://github.com/osekeranen/ot-harjoitustyo/releases/tag/v1.1) *viimeisin*  
+[v1.0](https://github.com/osekeranen/ot-harjoitustyo/releases/tag/v1.0)  
 
 ## Komennot
 
