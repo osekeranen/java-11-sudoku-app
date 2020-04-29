@@ -4,7 +4,7 @@ Lataa tiedosto [SudokuApp.jar](https://github.com/osekeranen/ot-harjoitustyo/rel
 
 ## Ohjelman käynnistäminen
 
-Navigoi ohjelman työhakemistoon ja käynnisyä sovellus komennolla  
+Navigoi ohjelman työhakemistoon ja käynnistä sovellus komennolla  
 ```
 java -jar SudokuApp.jar
 ```
