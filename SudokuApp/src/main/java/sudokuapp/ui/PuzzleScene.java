@@ -17,7 +17,7 @@ import javafx.scene.text.FontWeight;
 import sudokuapp.logic.Difficulty;
 import sudokuapp.logic.ScoreCounter;
 import sudokuapp.logic.SudokuChecker;
-import sudokuapp.logic.SudokuGenerator;
+import sudokuapp.logic.SudokuSolver;
 
 /**
  * 
@@ -25,7 +25,7 @@ import sudokuapp.logic.SudokuGenerator;
 public class PuzzleScene {
     private UiController ui;
     
-    private SudokuGenerator generator;
+    private SudokuSolver solver;
     private SudokuChecker checker;
     private ScoreCounter counter;
     
@@ -41,10 +41,10 @@ public class PuzzleScene {
         this.ui = ui;
         
         this.difficulty = Difficulty.BEGINNER;
-        generator = new SudokuGenerator();
+        solver = new SudokuSolver();
         checker = new SudokuChecker();
-        completeSudoku = generator.generateSudoku();
-        sudoku = generator.generateEmptySudoku(completeSudoku, difficulty.getClues());
+        completeSudoku = solver.solve(0, 0, new int[9][9]);
+        sudoku = solver.desolve(completeSudoku, difficulty.getClues());
         counter = new ScoreCounter();
     }
     
@@ -59,8 +59,8 @@ public class PuzzleScene {
     
     public void refresh() {
         this.difficulty = ui.getDifficulty();
-        completeSudoku = generator.generateSudoku();
-        sudoku = generator.generateEmptySudoku(completeSudoku, difficulty.getClues());
+        completeSudoku = solver.solve(0, 0, new int[9][9]);
+        sudoku = solver.desolve(completeSudoku, difficulty.getClues());
         counter = new ScoreCounter();
         
         for  (int y = 0; y < 9; y++) {
