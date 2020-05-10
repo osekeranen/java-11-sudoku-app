@@ -64,4 +64,4 @@ Sovelluksen käynnistyessä FileHiscoreDao lukee tiedoston tekee pisteistä *His
 
 ### Sudokun tarkastaminen
 
-![Sudokun tarkastaminen](images/sudokun-tarkastiminen-sekvenssikaavio.png)
+![Sudokun tarkastaminen](images/sudokun-tarkistaminen-sekvenssikaavio.png)
