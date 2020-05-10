@@ -38,4 +38,30 @@ Sovelluksen osien välisiä suhteita kuvaava luokka/pakkauskaavio:
 
 ## Tietojen pysyväistallennus
 
-Pakkauksen *sudokuapp.dao* luokka FileHiscoreDao vastaa tietojen pysyväistallennuksesta.
+Pakkauksen [sudokuapp.dao](https://github.com/osekeranen/java-11-sudoku-app/tree/master/SudokuApp/src/main/java/sudokuapp/dao) luokka [FileHiscoreDao](https://github.com/osekeranen/java-11-sudoku-app/blob/master/SudokuApp/src/main/java/sudokuapp/dao/FileHiscoreDao.java) vastaa tietojen pysyväistallennuksesta.
+
+### Tiedostot
+
+Sovellus tallettaa kaikkien ratkaistujen sudokujen pisteet omille riveilleen [konfiguraatiotiedostossa](https://github.com/osekeranen/java-11-sudoku-app/blob/master/SudokuApp/config.properties) määriteltyyn tiedostoon muodossa
+
+```
+nimi;pisteet;vaikeusaste
+```
+
+Tästä esimerkkinä
+
+```
+Oskari;2859;BEGINNER
+```
+
+Sovelluksen käynnistyessä FileHiscoreDao lukee tiedoston tekee pisteistä *Hiscoreja* sisältävän ArrayListin.
+
+## Päätoiminnallisuudet
+
+### Sudokun luominen
+
+![Sudokun luominen](images/sudokun-luominen-sekvenssikaavio.png)
+
+### Sudokun tarkastaminen
+
+![Sudokun tarkastaminen](images/sudokun-tarkastiminen-sekvenssikaavio.png)
