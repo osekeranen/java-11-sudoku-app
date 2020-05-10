@@ -12,7 +12,7 @@ Sovellus koostuu viidestä näkymästä
 
 Sovellus aukeaa päävalikkoon, josta `Play!`-nappia klikkaamalla siirrytään valitsemaan vaikeusaste. Vaikeusasteen valittua näkymä vaihtuu itse pelinäkymään, josta se siirtyy pelin päätyttyä pistenäkymään. Päävalikosta pääsee myös `Hiscores`-nappia painamalla tarkastelemaan ennätyspisteitä.
 
-## Perusversion tarjoama toiminnallisuus 
+## Sovelluksen toiminnallisuus
 
 * Sovellus luo sudokuristikon ja siihen ratkaisun
 * Käyttäjä voi pelata sudokua asettelemalla numeroita ristikkoon
