@@ -4,7 +4,7 @@ Lataa tiedosto [SudokuApp.jar](https://github.com/osekeranen/ot-harjoitustyo/rel
 
 ## Konfigurointi
 
-Ohjelma olettaa, että sen käynnistyshakemistossa on konfiguraatiotiedosto *config.properties*, joka määrittelee ennätyspisteet tallettavan tiedoston ja ennätyspisteiden testauksessa käytetyn tiedoston nimet. Tiedosto täytyy luoda itse ja sen muoto on seuraava
+Ohjelma olettaa, että sen käynnistyshakemistossa on konfiguraatiotiedosto [config.properties](https://github.com/osekeranen/java-11-sudoku-app/blob/master/SudokuApp/config.properties), joka määrittelee ennätyspisteet tallettavan tiedoston ja ennätyspisteiden testauksessa käytetyn tiedoston nimet. Tiedosto täytyy luoda itse ja sen muoto on seuraava
 
 ```
 hiscoreFile=hiscores
