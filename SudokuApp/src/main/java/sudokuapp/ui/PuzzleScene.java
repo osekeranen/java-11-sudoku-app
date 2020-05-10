@@ -40,7 +40,6 @@ public class PuzzleScene {
 
     private static Font cellFont = Font.font("Monospaced", 16);
     private static Font boldCellFont = Font.font("Monospaced", FontWeight.BOLD, 16);
-    private static Font incorrectCellFont;
 
     /**
      * Constructs an object for managing the puzzle view.
