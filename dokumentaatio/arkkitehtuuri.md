@@ -60,8 +60,16 @@ Sovelluksen käynnistyessä FileHiscoreDao lukee tiedoston tekee pisteistä *His
 
 ### Sudokun luominen
 
+Kun käyttäjä on klikannut uuden sudokun luovaa painiketta, sovellus toimii seuraavasti
+
 ![Sudokun luominen](images/sudokun-luominen-sekvenssikaavio.png)
+
+Käyttöliittymä kutsuu SudokuSolveria joka luo uuden sudoku käyttäen rekursiivista *solve*-metodia ja siitä ratkaistavan version. SudokuSolver palauttaa sudokun käyttöliittymälle, joka luo sudokua vastaavan ristikon.
 
 ### Sudokun tarkastaminen
 
+Kun käyttäjä on klikannut sudokun tarkistavaa painiketta, sovellus toimii seuraavasti
+
 ![Sudokun tarkastaminen](images/sudokun-tarkistaminen-sekvenssikaavio.png)
+
+Käyttöliittymä tallettaa ristikossaan olevat numerot kaksiulotteiseen taulukkoon ja lähettää sen SudokuCheckerille tarkistettavaksi. SudokuChecker vertaa sitä alkuperäiseen ristikkoon ja palauttaa listan vääristä soluista. Käyttöliittymä maalaa sen jälkeen väärät solut punaisiksi ja ilmoittaa ScoreCounterille väärästä tarkistuksesta, ellei sudoku ole täysin oikein, jolloin sovellus siirtyy pistenäkymään.
