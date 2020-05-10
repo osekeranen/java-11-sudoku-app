@@ -16,7 +16,9 @@ SudokuApp on suunniteltu perinteisen [sudoku](https://en.wikipedia.org/wiki/Sudo
 
 ## Releaset
 
-[v1.1](https://github.com/osekeranen/sudoku/releases/tag/v1.1) *viimeisin*
+[v1.2](https://github.com/osekeranen/sudoku/releases/tag/v1.2) *loppupalautus*
+
+[v1.1](https://github.com/osekeranen/sudoku/releases/tag/v1.1)
 
 [v1.0](https://github.com/osekeranen/sudoku/releases/tag/v1.0)
 
