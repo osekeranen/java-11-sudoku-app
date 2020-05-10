@@ -32,6 +32,7 @@
                 <configuration>
                     <excludes>
                         <exclude>sudokuapp/ui/*</exclude>
+                        <exclude>sudokuapp/Main.class</exclude>
                     </excludes>
                 </configuration>
                 <executions>

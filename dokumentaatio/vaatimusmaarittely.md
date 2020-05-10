@@ -8,7 +8,7 @@ Sovellus on tarkoitettu [sudoku](https://en.wikipedia.org/wiki/Sudoku)-pelin pel
 
 Sovellus koostuu viidestä näkymästä
 
-![Valikko](menu.png) ![Vaikeusasteen valinta](difficulty-selection.png) ![Sudokuristikko](puzzle.png) ![Pisteet](after-game-report.png) ![Ennätyspisteet](hiscores-beginner.png)
+![Valikko](images/menu.png) ![Vaikeusasteen valinta](images/difficulty-selection.png) ![Sudokuristikko](images/puzzle.png) ![Pisteet](images/after-game-report.png) ![Ennätyspisteet](images/hiscores-beginner.png)
 
 Sovellus aukeaa päävalikkoon, josta `Play!`-nappia klikkaamalla siirrytään valitsemaan vaikeusaste. Vaikeusasteen valittua näkymä vaihtuu itse pelinäkymään, josta se siirtyy pelin päätyttyä pistenäkymään. Päävalikosta pääsee myös `Hiscores`-nappia painamalla tarkastelemaan ennätyspisteitä.
 

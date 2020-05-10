@@ -23,7 +23,7 @@ java -jar SudokuApp.jar
 
 Sovellus avautuu valikkonäkymään
 
-![Valikko](menu.png)
+![Valikko](images/menu.png)
 
 * painamalla `Play!` pääset ratkaisemaan sudokua.
 * painamalla `Hiscores` pääset tarkastelemaan pelin ennätyspisteitä.
@@ -33,7 +33,7 @@ Sovellus avautuu valikkonäkymään
 
 Painettuasi `Play!`-painiketta pääset valitsemaan vaikeusasteen, jonka mukaan peli generoi sudokun.
 
-![Vaikeusasteen valinta](difficulty-selection.png)
+![Vaikeusasteen valinta](images/difficulty-selection.png)
 
 Tarjolla on kolme vaikeusastetta:
 
@@ -45,7 +45,7 @@ Tarjolla on kolme vaikeusastetta:
 
 Valittuasi vaikeusasteen eteesi avautuu puolitäysi sudokuristikko
 
-![Sudokuristikko](puzzle.png)
+![Sudokuristikko](images/puzzle.png)
 
 Ristikon yläpuolella näet neljä painiketta
 
@@ -56,30 +56,30 @@ Ristikon yläpuolella näet neljä painiketta
 
 Pelin tarjoamat mustat numerot ovat varmasti oikeita vihjeitä. Käyttäjän syöttämät numerot ilmaistaan harmaalla
 
-![Käyttäjän syöttämiä numeroita](puzzle-grey.png)
+![Käyttäjän syöttämiä numeroita](images/puzzle-grey.png)
 
 ja tarkistuksen jälkeen väärät numerot muuttuvat punaisiksi
 
-![Tarkistettu sudokuristikko](puzzle-red.png)
+![Tarkistettu sudokuristikko](images/puzzle-red.png)
 
 ## Pistenäkymä
 
-Mikäli tarkastettava sudoku on oikein, peli kertoo käyttäjän saavuttamat pisteet ja hän voi syöttää oman nimensä tallennettavaksi ennätyspisteisiin. Syötettyyän nimensä ja painettuaan `Submit` käyttäjä palaa takaisin päävalikkoon.
+Mikäli tarkastettava sudoku on oikein, käyttäjä voi syöttää oman nimensä tallennettavaksi ennätyspisteisiin. Syötettyyän nimensä ja painettuaan `Submit` käyttäjä palaa takaisin päävalikkoon.
 
-![Pisteet](after-game-report.png)
+![Pisteet](images/after-game-report.png)
 
 Pisteet ovat sidonnaisia vaikeusasteeseen, eikä esimerkiksi helpoimmalla vaikeudella suoritetusta sudokusta saatuja pisteitä voi verrata vaikeimman vaikeusasteen pisteisiin. Kaava pisteiden laskemiseen on seuraava
 
 ```
-pisteet = 3600 - kulunut aika sekunneissa - väärät tarkistukset * 100
+pisteet = 3600 - kulunut aika - väärät tarkistukset * 100
 ```
 
 ## Ennätyspisteet
 
 Peli tallentaa kaikki läpäistyt pelit konfiguraatiotiedostossa määritettyy tiedostoon. Käyttäjä voi tarkastella ennätyspisteitä painamalla `Hiscores`
 
-![Ennätyspisteet](hiscores.png)
+![Ennätyspisteet](images/hiscores.png)
 
 ja tämän jälkeen valitsemalla vaikeusasteen, jonka ennätyspisteitä haluaa tarkastella
 
-![Vaikeusasteen valinta](hiscores-beginner.png)
+![Vaikeusasteen valinta](images/hiscores-beginner.png)
