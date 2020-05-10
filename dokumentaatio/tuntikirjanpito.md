@@ -12,5 +12,5 @@
 | 28.4 | 4 | selvennetty sovelluksen pakkausrakennetta ja lisätty toiminnallisuuksia |
 | 29.4 | 14 | lisätty hiscoret ja tietojen pysyväistallennus, paranneltu dokumentaatiota ja tehty koko gui uusiksi |
 | 30.4 | 4 | päivitetty sudokun luonti parempaan rekursiiviseen metodiin |
-| 10.5 | 7 | lisätty dokumentaatiota |
+| 10.5 | 9 | lisätty dokumentaatiota |
 | yht. | 55 | |
