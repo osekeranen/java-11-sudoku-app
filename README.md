@@ -12,7 +12,7 @@ SudokuApp on suunniteltu perinteisen [sudoku](https://en.wikipedia.org/wiki/Sudo
 
 [Testausdokumentti](https://github.com/osekeranen/sudoku/blob/master/dokumentaatio/testaus.md)
 
-[Työaikakirjanpito](https://github.com/osekeranen/sudoku/blob/master/dokumentaatio/tyoaikakirjanpito.md)
+[Tuntikirjanpito](https://github.com/osekeranen/sudoku/blob/master/dokumentaatio/tuntikirjanpito.md)
 
 ## Releaset
 
