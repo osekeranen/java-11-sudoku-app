@@ -2,9 +2,84 @@
 
 Lataa tiedosto [SudokuApp.jar](https://github.com/osekeranen/ot-harjoitustyo/releases/tag/v1.1)
 
+## Konfigurointi
+
+Ohjelma olettaa, että sen työhakemistossa on konfiguraatiotiedosto *config.properties*, joka määrittelee ennätyspisteet tallettavan tiedoston ja ennätyspisteiden testauksessa käytetyn tiedoston nimet. Tiedosto tulee valmiina asennuksen mukana ja sen muoto on seuraava
+
+```
+hiscoreFile=hiscores
+hiscoreTestFile=test-hiscores
+```
+
 ## Ohjelman käynnistäminen
 
-Navigoi ohjelman työhakemistoon ja käynnistä sovellus komennolla  
+Ohjelma käynnistetään komennolla
+
 ```
 java -jar SudokuApp.jar
 ```
+
+## Valikko
+
+Sovellus avautuu valikkonäkymään
+
+![Valikko](menu.png)
+
+* painamalla `Play!` pääset ratkaisemaan sudokua.
+* painamalla `Hiscores` pääset tarkastelemaan pelin ennätyspisteitä.
+* painamalla `Exit` suljet sovelluksen.
+
+## Vaikeusasteen valinta
+
+Painettuasi `Play!`-painiketta pääset valitsemaan vaikeusasteen, jonka mukaan peli generoi sudokun.
+
+![Vaikeusasteen valinta](difficulty-selection.png)
+
+Tarjolla on kolme vaikeusastetta:
+
+* vaikeusaste `Beginner` on helpoin ja pelin generoimassa sudokussa on valmiiksi 40 numeroa.
+* vaikeusaste `Intermediate` on keskivaikea ja pelin generoimassa sudokussa on valmiiksi 30 numeroa.
+* vaikeusaste `Advanced` on vaikein ja pelin generoimassa sudokussa on valmiiksi 20 numeroa.
+
+## Sudokun ratkaiseminen
+
+Valittuasi vaikeusasteen eteesi avautuu puolitäysi sudokuristikko
+
+![Sudokuristikko](puzzle.png)
+
+Ristikon yläpuolella näet neljä painiketta
+
+* painamalla &#8592;-painiketta pääset takaisin päävalikkoon
+* painamalla &#10003;-painiketta voit tarkistaa ristikon
+* painamalla &#10007;-painiketta voit tyhjentää ristikon
+* painamalla &#8635;-painiketta peli luo uuden sudokun
+
+Pelin tarjoamat mustat numerot ovat varmasti oikeita vihjeitä. Käyttäjän syöttämät numerot ilmaistaan harmaalla
+
+![Käyttäjän syöttämiä numeroita](puzzle-grey.png)
+
+ja tarkistuksen jälkeen väärät numerot muuttuvat punaisiksi
+
+![Tarkistettu sudokuristikko](puzzle-red.png)
+
+## Pistenäkymä
+
+Mikäli tarkastettava sudoku on oikein, käyttäjä voi syöttää oman nimensä tallennettavaksi ennätyspisteisiin. Syötettyyän nimensä ja painettuaan `Submit` käyttäjä palaa takaisin päävalikkoon.
+
+![Pisteet](after-game-report.png)
+
+Pisteet ovat sidonnaisia vaikeusasteeseen, eikä esimerkiksi helpoimmalla vaikeudella suoritetusta sudokusta saatuja pisteitä voi verrata vaikeimman vaikeusasteen pisteisiin. Kaava pisteiden laskemiseen on seuraava
+
+```
+pisteet = 3600 - kulunut aika - väärät tarkistukset * 100
+```
+
+## Ennätyspisteet
+
+Peli tallentaa kaikki läpäistyt pelit konfiguraatiotiedostossa määritettyy tiedostoon. Käyttäjä voi tarkastella ennätyspisteitä painamalla `Hiscores`
+
+![Ennätyspisteet](hiscores.png)
+
+ja tämän jälkeen valitsemalla vaikeusasteen, jonka ennätyspisteitä haluaa tarkastella
+
+![Vaikeusasteen valinta](hiscores-beginner.png)
