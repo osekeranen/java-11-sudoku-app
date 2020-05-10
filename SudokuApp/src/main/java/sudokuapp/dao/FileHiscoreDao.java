@@ -2,23 +2,28 @@ package sudokuapp.dao;
 
 import java.io.File;
 import java.io.FileWriter;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 import sudokuapp.logic.Difficulty;
 import sudokuapp.logic.Hiscore;
 
 /**
- * Saving hiscores in a file
+ * This is a tool for saving and reading hiscore.
  */
 public class FileHiscoreDao implements HiscoreDao {
+
     private ArrayList<Hiscore> hiscores;
     private String file;
 
+    /**
+     * Constructs the data-access object for saving and reading hiscore.
+     * 
+     * @param file the filename
+     */
     public FileHiscoreDao(String file) throws Exception {
         hiscores = new ArrayList<>();
         this.file = file;
-        
+
         try {
             Scanner reader = new Scanner(new File(file));
             while (reader.hasNextLine()) {
@@ -34,12 +39,17 @@ public class FileHiscoreDao implements HiscoreDao {
             writer.close();
         }
     }
-     
+
+    /**
+     * Adds a score to the hiscore.
+     * 
+     * @param hiscore the score to be added
+     */
     public void add(Hiscore hiscore) throws Exception {
         hiscores.add(hiscore);
         this.save();
     }
-    
+
     private void save() throws Exception {
         try (FileWriter writer = new FileWriter(new File(file))) {
             for (Hiscore hiscore : hiscores) {
@@ -47,10 +57,15 @@ public class FileHiscoreDao implements HiscoreDao {
             }
         }
     }
-    
+
+    /**
+     * Returns a list containing the hiscore.
+     * 
+     * @return the list containing hiscore
+     */
     @Override
     public ArrayList<Hiscore> getAll() {
         return hiscores;
     }
-    
+
 }

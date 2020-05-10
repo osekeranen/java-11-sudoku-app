@@ -1,7 +1,9 @@
 package sudokuapp.ui;
 
+import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Properties;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -34,12 +36,14 @@ public class UiController extends Application {
     private int score;
     
     private FileHiscoreDao hiscoreDao;
-    private String hiscoreFile;
     private ArrayList<Hiscore> hiscores;
     
     @Override
     public void start(Stage stage) throws Exception {
-        hiscoreFile = "hiscoresFile";
+        Properties properties = new Properties();
+        properties.load(new FileInputStream("config.properties"));
+        
+        String hiscoreFile = properties.getProperty("hiscoreFile");
         hiscoreDao = new FileHiscoreDao(hiscoreFile);
         
         menuScene = new MenuScene(this);

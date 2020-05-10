@@ -1,20 +1,15 @@
 package sudokuapp.logic;
 
 /**
- * An enum for managing difficulty settings
+ * This is an enum for managing difficulty settings.
  */
 public enum Difficulty {
     BEGINNER(40),
     INTERMEDIATE(30),
     ADVANCED(20);
-    
+
     private int clues;
 
-    /**
-     * Constructor for difficulty
-     * 
-     * @param clues number of clues given at difficulty setting
-     */
     private Difficulty(int clues) {
         this.clues = clues;
     }

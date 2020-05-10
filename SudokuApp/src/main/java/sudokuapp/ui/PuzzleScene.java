@@ -20,26 +20,36 @@ import sudokuapp.logic.SudokuChecker;
 import sudokuapp.logic.SudokuSolver;
 
 /**
- * 
+ * This is a class for creating the puzzle view.
  */
 public class PuzzleScene {
+
     private UiController ui;
-    
+
     private SudokuSolver solver;
     private SudokuChecker checker;
     private ScoreCounter counter;
-    
+
     private Difficulty difficulty;
-    
+
     private int[][] sudoku;
     private int[][] completeSudoku;
-    
+
     private HashMap<Integer, GridPane> squareMap;
     private HashMap<Integer, Button> cellMap;
 
-    public PuzzleScene(UiController ui) {
-        this.ui = ui;
-        
+    private static Font cellFont = Font.font("Monospaced", 16);
+    private static Font boldCellFont = Font.font("Monospaced", FontWeight.BOLD, 16);
+    private static Font incorrectCellFont;
+
+    /**
+     * Constructs an object for managing the puzzle view.
+     * 
+     * @param controller the controller that controls ui
+     */
+    public PuzzleScene(UiController controller) {
+        this.ui = controller;
+
         this.difficulty = Difficulty.BEGINNER;
         solver = new SudokuSolver();
         checker = new SudokuChecker();
@@ -47,109 +57,117 @@ public class PuzzleScene {
         sudoku = solver.desolve(completeSudoku, difficulty.getClues());
         counter = new ScoreCounter();
     }
-    
+
+    /**
+     * Returns the puzzle view
+     * 
+     * @return a scene for the puzzle view
+     */
     public Scene getScene() {
         VBox layout = new VBox();
         layout.getChildren().add(this.getButtons());
         layout.getChildren().add(this.getGrid());
-        
+
         Scene scene = new Scene(layout, 336, 403);
         return scene;
     }
-    
+
+    /**
+     * Updates the sudoku cells for the new puzzle.
+     */
     public void refresh() {
         this.difficulty = ui.getDifficulty();
         completeSudoku = solver.solve(0, 0, new int[9][9]);
         sudoku = solver.desolve(completeSudoku, difficulty.getClues());
         counter = new ScoreCounter();
-        
-        for  (int y = 0; y < 9; y++) {
+
+        for (int y = 0; y < 9; y++) {
             for (int x = 0; x < 9; x++) {
                 Button cell = this.getCell(y, x);
-                
+
                 int square = ((y * 9 + x) / 3) % 3 + ((y * 9 + x) / 3) / 3 - ((y * 9 + x) / 9) % 3;
                 squareMap.get(square).add(cell, x, y);
-                
+
                 cellMap.put(y * 9 + x, cell);
             }
         }
     }
-    
+
     private boolean check() {
         int[][] userSudoku = new int[9][9];
-        
+
         for (int i = 0; i < cellMap.size(); i++) {
             int x = i % 9;
             int y = i / 9;
-            
+
             if (cellMap.get(i).getText().equals(" ")) {
                 userSudoku[y][x] = 0;
             } else {
                 userSudoku[y][x] = Integer.valueOf(cellMap.get(i).getText());
             }
         }
-        
+
         ArrayList<Integer> mistakes = checker.checkSudoku(userSudoku, completeSudoku);
-        
+
         for (Integer i : mistakes) {
             cellMap.get(i).setStyle("-fx-text-fill: red");
         }
-        
+
         return mistakes.isEmpty();
     }
-    
+
     private void empty() {
         for (int i = 0; i < cellMap.size(); i++) {
             int y = i / 9;
             int x = i % 9;
-            
+
             if (sudoku[y][x] == 0) {
                 cellMap.get(i).setText(" ");
             }
         }
     }
-    
+
     private Parent getGrid() {
         GridPane grid = new GridPane();
         grid.setHgap(10);
         grid.setVgap(10);
         grid.setPadding(new Insets(10, 10, 10, 10));
-        
+
         squareMap = new HashMap<>();
-        
+
         for (int i = 0; i < 9; i++) {
             GridPane square = new GridPane();
-            
+
             grid.add(square, i % 3, i / 3);
             squareMap.put(i, square);
         }
-        
+
         cellMap = new HashMap<>();
-        
+
         for (int y = 0; y < 9; y++) {
             for (int x = 0; x < 9; x++) {
                 Button cell = this.getCell(y, x);
-                
+
                 int square = ((y * 9 + x) / 3) % 3 + ((y * 9 + x) / 3) / 3 - ((y * 9 + x) / 9) % 3;
                 squareMap.get(square).add(cell, x, y);
-                
+
                 cellMap.put(y * 9 + x, cell);
             }
         }
-        
+
         return grid;
     }
-    
+
     private Button getCell(int y, int x) {
         Button cell = new Button();
-        
+
         if (sudoku[y][x] == 0) {
             cell.setText(" ");
-            cell.setFont(Font.font("Monospaced", 16));
-            
+            cell.setFont(cellFont);
+
             cell.setOnKeyPressed(e -> {
-                cell.setStyle("-fx-text-fill: black");
-                
+                cell.setStyle("-fx-text-fill: gray");
+
                 if (e.getCode() == KeyCode.DIGIT1) {
                     cell.setText("1");
                 } else if (e.getCode() == KeyCode.DIGIT2) {
@@ -174,47 +192,47 @@ public class PuzzleScene {
             });
         } else {
             cell.setText("" + sudoku[y][x]);
-            cell.setFont(Font.font("Monospaced", FontWeight.BOLD, 16));
+            cell.setFont(boldCellFont);
         }
-        
+
         return cell;
     }
-    
+
     private Parent getButtons() {
         HBox buttons = new HBox();
         buttons.setPadding(new Insets(10, 18, 0, 10));
-        
+
         buttons.getChildren().add(this.getBackButton());
-        
+
         Pane spacer = new Pane();
         HBox.setHgrow(spacer, Priority.ALWAYS);
         buttons.getChildren().add(spacer);
-        
+
         buttons.getChildren().add(this.getCheckSudokuButton());
         buttons.getChildren().add(this.getEmptySudokuButton());
         buttons.getChildren().add(this.getNewSudokuButton());
-        
+
         return buttons;
     }
-    
+
     private Button getBackButton() {
         Button back = new Button("\u2190");
-        back.setFont(Font.font("Monospaced", FontWeight.BOLD, 16));
+        back.setFont(boldCellFont);
         back.setMinSize(32, 32);
         back.setMaxSize(32, 32);
-        back.setOnAction(e ->{
+        back.setOnAction(e -> {
             ui.switchToMenuScene();
         });
-        
+
         return back;
     }
-    
+
     private Button getCheckSudokuButton() {
         Button checkSudoku = new Button("\u2714");
-        checkSudoku.setFont(Font.font("Monospaced", 16));
+        checkSudoku.setFont(boldCellFont);
         checkSudoku.setMinSize(32, 32);
         checkSudoku.setMaxSize(32, 32);
-        checkSudoku.setOnAction(e ->{
+        checkSudoku.setOnAction(e -> {
             if (this.check()) {
                 ui.setScore(counter.getScore());
                 ui.switchToReportScene();
@@ -222,31 +240,31 @@ public class PuzzleScene {
                 counter.addFailedCheck();
             }
         });
-        
+
         return checkSudoku;
     }
-    
+
     private Button getEmptySudokuButton() {
         Button emptySudoku = new Button("\u2718");
-        emptySudoku.setFont(Font.font("Monospaced", 16));
+        emptySudoku.setFont(boldCellFont);
         emptySudoku.setMinSize(32, 32);
         emptySudoku.setMaxSize(32, 32);
         emptySudoku.setOnAction(e -> {
             this.empty();
         });
-        
+
         return emptySudoku;
     }
-    
+
     private Button getNewSudokuButton() {
         Button newSudoku = new Button("\u21BB");
-        newSudoku.setFont(Font.font("Monospaced", FontWeight.BOLD, 16));
+        newSudoku.setFont(boldCellFont);
         newSudoku.setMinSize(32, 32);
         newSudoku.setMaxSize(32, 32);
-        newSudoku.setOnAction(e ->{
+        newSudoku.setOnAction(e -> {
             this.refresh();
         });
-        
+
         return newSudoku;
     }
 }

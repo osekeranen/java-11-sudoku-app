@@ -1,7 +1,7 @@
 package sudokuapp.logic;
 
 /**
- * An object for hiscores
+ * This is an object for managing hiscore.
  */
 public class Hiscore implements Comparable<Hiscore> {
     private int score;
@@ -9,7 +9,7 @@ public class Hiscore implements Comparable<Hiscore> {
     private Difficulty difficulty;
 
     /**
-     * Constructor for an hiscore
+     * Constructs the hiscore
      * 
      * @param difficulty difficulty on which the game was completed
      * @param score amount of points
