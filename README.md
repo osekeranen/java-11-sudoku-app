@@ -1,6 +1,6 @@
 # SudokuApp
 
-SudokuApp on suunniteltu perinteisen [sudoku](https://en.wikipedia.org/wiki/Sudoku)-pelin pelaamista varten. Sovellus luo ristikot käyttäen rekursiivista backtracking-algoritmiä. SudokuApp on toteutettu käyttäen Java 11:a ja JavaFX:aa.
+SudokuApp on suunniteltu perinteisen [sudoku](https://en.wikipedia.org/wiki/Sudoku)-pelin pelaamista varten. Sovellus luo ristikot käyttäen rekursiivista backtracking-algoritmiä. SudokuApp on toteutettu käyttäen Java 11:a ja JavaFX:aa. Sovellus on tehty osana Helsingin yliopiston kurssia ohjelmistotekniikka.
 
 ## Dokumentaatio
 
