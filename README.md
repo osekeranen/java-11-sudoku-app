@@ -24,7 +24,7 @@ HUOM! Javadocin luominen vaatii että JAVA_HOME on asetettu.
 
 ## Dokumentaatio
 
-[kayttöohje](https://github.com/osekeranen/ot-harjoitustyo/blob/master/dokumentointi/kayttoohje.md)  
+[kayttöohje](https://github.com/osekeranen/ot-harjoitustyo/blob/master/dokumentointi/manual.md)  
 [vaatimusmäärittely](https://github.com/osekeranen/ot-harjoitustyo/blob/master/dokumentointi/vaatimusmaarittely.md)  
 [työaikakirjanpito](https://github.com/osekeranen/ot-harjoitustyo/blob/master/dokumentointi/tyoaikakirjanpito.md)  
 [arkkitehtuuri](https://github.com/osekeranen/ot-harjoitustyo/blob/master/dokumentointi/arkkitehtuuri.md)
