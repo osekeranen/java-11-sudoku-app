@@ -64,14 +64,14 @@ ja tarkistuksen jälkeen väärät numerot muuttuvat punaisiksi
 
 ## Pistenäkymä
 
-Mikäli tarkastettava sudoku on oikein, käyttäjä voi syöttää oman nimensä tallennettavaksi ennätyspisteisiin. Syötettyyän nimensä ja painettuaan `Submit` käyttäjä palaa takaisin päävalikkoon.
+Mikäli tarkastettava sudoku on oikein, peli kertoo käyttäjän saavuttamat pisteet ja hän voi syöttää oman nimensä tallennettavaksi ennätyspisteisiin. Syötettyyän nimensä ja painettuaan `Submit` käyttäjä palaa takaisin päävalikkoon.
 
 ![Pisteet](after-game-report.png)
 
 Pisteet ovat sidonnaisia vaikeusasteeseen, eikä esimerkiksi helpoimmalla vaikeudella suoritetusta sudokusta saatuja pisteitä voi verrata vaikeimman vaikeusasteen pisteisiin. Kaava pisteiden laskemiseen on seuraava
 
 ```
-pisteet = 3600 - kulunut aika - väärät tarkistukset * 100
+pisteet = 3600 - kulunut aika sekunneissa - väärät tarkistukset * 100
 ```
 
 ## Ennätyspisteet
