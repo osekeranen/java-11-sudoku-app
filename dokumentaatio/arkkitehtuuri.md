@@ -4,7 +4,7 @@
 
 Koodin pakkausrakenne on seuraava:
 
-![Sudokusovelluksen pakkauskaavio](sudoku-pakkauskaavio.png)  
+![Sudokusovelluksen pakkauskaavio](images/sudoku-pakkauskaavio.png)  
 
 Pakkaus *sudokuapp.ui* sisältää JavaFX:llä toteutetun graafisen käyttöliittymän, *sudokuapp.logic* sovelluslogiikan ja *sudokuapp.dao* tietojen pysyväistallenuksen.
 
@@ -27,7 +27,3 @@ Sovelluslogiikka on toteutettuna pakkauksen *sudokuapp.logic* luokilla.
 ## Tietojen pysyväistallennus
 
 Pakkauksen *sudokuapp.dao* luokka FileHiscoreDao vastaa tietojen pysyväistallennuksesta.
-
-## Muuta
-![Sudokusovelluksen sovelluslogiikan luokkakaavio](sudoku-luokkakaavio.png)  
-![Sudokusovelluksen sudokun generoinnin sekvenssikaavio](sekvenssikaavio-generatesudoku.png)
