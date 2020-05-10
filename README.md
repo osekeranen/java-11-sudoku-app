@@ -4,7 +4,7 @@ SudokuApp on suunniteltu perinteisen [sudoku](https://en.wikipedia.org/wiki/Sudo
 
 ## Dokumentaatio
 
-[Kayttöohje](https://github.com/osekeranen/sudoku/blob/master/dokumentaatio/manual.md)
+[Kayttöohje](https://github.com/osekeranen/sudoku/blob/master/dokumentaatio/kayttoohje.md)
 
 [Vaatimusmäärittely](https://github.com/osekeranen/sudoku/blob/master/dokumentaatio/vaatimusmaarittely.md)
 
